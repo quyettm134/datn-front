@@ -14,7 +14,7 @@ body, html {
     font-size: 50px;
 }
 
-.input-field {
+.input-field-sign-in {
     background-color: #FFFFFF;
     position: absolute;
     top: 50%;
@@ -22,6 +22,18 @@ body, html {
     margin-left: -350px;
     margin-top: -275px;
     height: 550px;
+    width: 700px;
+}
+
+.input-field-sign-up {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    margin-left: -350px;
+    margin-top: -275px;
+    height: 1000px;
     width: 700px;
 }
 
@@ -37,17 +49,21 @@ body, html {
     font-family: 'Inria Serif';
 }
 
-.index .sign-in {
+.sign-in-clicked, .sign-up-clicked {
+    text-shadow: 1px 1px #000000;
+    float: left;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Inria Serif';
+}
+
+.index .sign-in, .sign-in-clicked, .index .sign-up, .sign-up-clicked {
     margin-left: 125px;
 }
 
-.index .sign-in, .index .sign-up, .forgot-password, .text:hover {
+.index .sign-in, .index .sign-up, .sign-in-clicked, .sign-up-clicked, .forgot-password, .text:hover {
     color: #313131;
     cursor: pointer;
-}
-
-.index .sign-up {
-    margin-left: 125px;
 }
 
 .index .line {
@@ -75,9 +91,15 @@ body, html {
     margin-top: 20px;
 }
 
-.user-form {
+.user-form-sign-in {
     position: absolute;
     top: 15%;
+    left: 25%;
+}
+
+.user-form-sign-up {
+    position: absolute;
+    top: 10%;
     left: 25%;
 }
 
