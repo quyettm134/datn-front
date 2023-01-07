@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Imperial+Script');
+@import url('https://fonts.googleapis.com/css?family=Inria+Serif');
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: white;
+}
+
+.container {
+    position: relative;
+}
+
+.first-section {
+    position: absolute;
+    width: 100%;
+    height: 58px;
+    left: 0;
+    top: 0;
+    background: #000000;
+}
+
+.address-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    left: 10px;
+    top: 15px;
+    color: white;
+}
+
+.address {
+    position: absolute;
+    width: 372px;
+    height: 25px;
+    left: 50px;
+    top: 16px;
+    font-family: 'Inria Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.phone-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    left: 315px;
+    top: 15px;
+    color: white;
+}
+
+.phone-number {
+    position: absolute;
+    width: 263px;
+    height: 25px;
+    left: 350px;
+    top: 16px;
+    font-family: 'Inria Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sign-in-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    left: 1200px;
+    top: 15px;
+    color: white;
+}
+
+.sign-in {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    left: 1240px;
+    top: 16px;
+    font-family: 'Inria Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.cart-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    left: 1340px;
+    top: 15px;
+    color: white;
+}
+
+.cart {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    left: 1380px;
+    top: 16px;
+    font-family: 'Inria Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.search {
+    position: absolute;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    top: 15px;
+    color: white;
+}
+
+.second-section {
+    position: absolute;
+    width: 100%;
+    height: 233px;
+    left: 0px;
+    top: 58px;
+    background: #1C1D20;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.brand-name {
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+    font-family: 'Imperial Script';
+    font-size: 70px;
+    color: white;
+}
+
+.news, .men, .women, .children, .handbags, .rings, .necklaces, .watches, .others {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top: 150px;
+    font-family: 'Inria Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.news {
+    left: 100px;
+}
+
+.men {
+    left: 290px;
+}
+
+.women {
+    left: 400px;
+}
+
+.children {
+    left: 540px;
+}
+
+.handbags {
+    left: 700px;
+}
+
+.rings {
+    left: 880px;
+}
+
+.necklaces {
+    left: 1000px;
+}
+
+.watches {
+    left: 1180px;
+}
+
+.others {
+    left: 1350px;
+}

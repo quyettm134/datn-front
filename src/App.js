@@ -1,10 +1,12 @@
-import LoginSignup from "./pages/LoginSignup/LoginSignup";
-function App() {
-  return (
-    <div className="App">
-      <LoginSignup />
-    </div>
-  );
-}
+import React from 'react';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
-export default App;
+export default function App() {
+    return (
+        <div className="App">
+            <Header />
+            <Footer />
+        </div>
+    )
+}
