@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LoginSignup.css";
+import { Link } from "react-router-dom";
 
 export default function LoginSignup() {
     const [signIn, setSignIn] = useState(true);
@@ -44,7 +45,7 @@ export default function LoginSignup() {
                         </div>
 
                         <div className="button-container">
-                            <input type="submit" value="SIGN IN"/>
+                            <Link to="/"><input type="submit" value="SIGN IN"/></Link>
                         </div>
 
                         <div className="forgot-password">
@@ -86,7 +87,7 @@ export default function LoginSignup() {
                         </div>
 
                         <div className="button-container">
-                            <input type="submit" value="SIGN UP"/>
+                            <Link to="/"><input type="submit" value="SIGN UP"/></Link>
                         </div>
                     </form>}
                 </div>

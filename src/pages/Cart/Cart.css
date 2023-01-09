@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Imperial+Script');
+@import url('https://fonts.googleapis.com/css?family=Inria+Serif');
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    display: flex;
+    background-color: white;
+}
+
+.cart-container {
+    position: relative;
+}
+
+.cart-items {
+    position: absolute;
+    width: 497px;
+    height: 25px;
+    left: 46px;
+
+    font-family: 'Inria Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}

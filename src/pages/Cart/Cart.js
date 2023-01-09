@@ -1,13 +1,14 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-
+import './Cart.css';
 export default function Cart() {
   return (
-    <div>
+    <div className='cart-content'>
         <Header />
-        <div className='container'>
-            <div className='title'>YOUR SELECTION</div>
+        
+        <div className='cart-container'>
+            <div className='cart-items'>YOUR SELECTION</div>
             <div className='Product'>
                 <div className='name'>Ophidia GG medium totea</div>
                 <div className='variation'>Variation: Brown</div>
@@ -35,6 +36,7 @@ export default function Cart() {
                 </div>
             </div>
         </div>
+
         <Footer />
     </div>
     
