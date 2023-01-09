@@ -1,11 +1,11 @@
 import React from "react";
-import "./index.css";
+import "./Header.css";
 import { BiMap, BiPhoneCall, BiUserCircle, BiCart, BiSearch } from "react-icons/bi";
 
 export default function Header() {
     return (
-        <div className="container">
-            <div className="first-section">
+        <div className="header-container">
+            <div className="first-section-header">
                 <div className="address-icon"><BiMap /></div>
                 <div className="address">Ho Chi Minh City - Vietnam</div>
                 <div className="phone-icon"><BiPhoneCall /></div>
@@ -17,8 +17,8 @@ export default function Header() {
                 <div className="search"><a href="#"><BiSearch /></a></div>
             </div>
 
-            <div className="second-section">
-                <div className="brand-name">KQQ</div>
+            <div className="second-section-header">
+                <div className="brand-name-header">KQQ</div>
                 <div className="news"><a href="#">What's new</a></div>
                 <div className="men"><a href="#">Men</a></div>
                 <div className="women"><a href="#">Women</a></div>

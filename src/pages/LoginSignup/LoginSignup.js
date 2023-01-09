@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./index.css";
+import "./LoginSignup.css";
 
 export default function LoginSignup() {
     const [signIn, setSignIn] = useState(true);
@@ -7,19 +7,19 @@ export default function LoginSignup() {
 
     return (
         <>
-            <div className="container">
-                <div className="brand-name">KQQ</div>
+            <div className="sign-in-container">
+                <div className="brand-name-sign-in">KQQ</div>
 
                 <div className={signIn ? "input-field-sign-in" : "input-field-sign-up"}>
                     <div className="index">
-                        <div className={signIn ? "sign-in-clicked" : "sign-in"} onClick={() => {
+                        <div className={signIn ? "sign-in-clicked" : "sign-in-sign-in"} onClick={() => {
                             if (signIn === false && signUp === true) {
                                 setSignIn(true);
                                 setSignUp(false);
                             }
                         }}>SIGN IN</div>
                         <div className="line"></div>
-                        <div className={signUp ? "sign-up-clicked" : "sign-up"} onClick={() => {
+                        <div className={signUp ? "sign-up-clicked" : "sign-up-sign-in"} onClick={() => {
                             if (signIn === true && signUp === false) {
                                 setSignIn(false);
                                 setSignUp(true);
@@ -91,7 +91,7 @@ export default function LoginSignup() {
                     </form>}
                 </div>
 
-                {signIn && <div className="footer">
+                {signIn && <div className="footer-sign-in">
                     <div className="text">Privacy Policy</div>
                     <div className="line"></div>
                     <div className="text">Terms & Conditions</div>

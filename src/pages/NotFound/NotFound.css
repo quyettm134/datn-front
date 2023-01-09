@@ -2,16 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Inria+Serif');
 
 body, html {
-    height: 100%;
     width: 100%;
-    margin: 0;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
     background-color: white;
 }
 
-.container {
+.not-found-container {
     position: relative;
-    width: 100%;
-    height: 343px;
-    bottom: 0;
-    background: #000000;
 }
