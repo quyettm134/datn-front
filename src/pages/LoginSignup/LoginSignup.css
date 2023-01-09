@@ -7,11 +7,14 @@ body, html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    display: flex;
     background-color: #EDEBEB !important;
 }
 
+
 .brand-name-sign-in {
-    margin: 10px;
+    position: absolute;
+    margin-left: 717px;
     text-align: center;
     font-family: 'Imperial Script';
     font-size: 50px;

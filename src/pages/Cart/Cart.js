@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import './Cart.css';
 export default function Cart() {
   return (
-    <div className='cart-content'>
+    <>
         <Header />
         
         <div className='cart-container'>
@@ -38,7 +38,7 @@ export default function Cart() {
         </div>
 
         <Footer />
-    </div>
+    </>
     
   )
 }

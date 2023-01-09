@@ -17,18 +17,11 @@ body, html {
 
 .cart-items {
     position: absolute;
-    width: 497px;
-    height: 25px;
     left: 46px;
-
+    top: 0px;
     font-family: 'Inria Serif';
     font-style: normal;
     font-weight: 500;
     font-size: 48px;
-    line-height: 58px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
     color: #000000;
 }

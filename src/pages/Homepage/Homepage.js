@@ -8,7 +8,7 @@ export default function Homepage() {
   return (
       <>
         <Header />
-          <img src={homepage1} alt='homepage1' className='homepage1'/>
+        <img src={homepage1} alt='homepage1' className='homepage1'/>
         <Footer />
       </>
     )

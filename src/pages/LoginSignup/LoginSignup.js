@@ -8,8 +8,9 @@ export default function LoginSignup() {
 
     return (
         <>
+            <div className="brand-name-sign-in">KQQ</div>
+
             <div className="sign-in-container">
-                <div className="brand-name-sign-in">KQQ</div>
 
                 <div className={signIn ? "input-field-sign-in" : "input-field-sign-up"}>
                     <div className="index">
