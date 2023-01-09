@@ -7,7 +7,7 @@ export default function LoginSignup() {
     const [signUp, setSignUp] = useState(false);
 
     return (
-        <>
+        <div className="sign-in-content">
             <div className="brand-name-sign-in">KQQ</div>
 
             <div className="sign-in-container">
@@ -99,6 +99,6 @@ export default function LoginSignup() {
                     <div className="text">Terms & Conditions</div>
                 </div>}
             </div>
-        </>
+        </div>
     )
 }

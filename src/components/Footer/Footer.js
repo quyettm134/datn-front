@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="brand-name-footer">KQQ</div>
                 </div>
             </div> */}
-            <img src={footer} alt="footer"/>
+            <img src={footer} alt="footer" className="footer"/>
         </div>
     )
 }

@@ -13,15 +13,51 @@ body, html {
 
 .cart-container {
     position: relative;
+    height: 100%;
+    background-color: white !important;
+    padding-bottom: 100px;
 }
 
 .cart-items {
     position: absolute;
+    float: left;
     left: 46px;
-    top: 0px;
+    top: 10px;
     font-family: 'Inria Serif';
     font-style: normal;
     font-weight: 500;
     font-size: 48px;
     color: #000000;
+}
+
+.selections-line {
+    float: left;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding-top: 80px;
+}
+
+.cart-images {
+    position: absolute;
+    top: 120px;
+    left: 46px;
+}
+
+.items {
+    float: left;
+    width: 814px;
+    height: 220px;
+    border: solid 1px black;
+}
+
+.cart_summary {
+    float: left;
+    margin-top: -220px;
+    margin-left: 1050px;
+    width: 301.8px;
+    height: 625.2px;
+}
+
+.cart, .cart_summary:hover {
+    cursor: pointer;
 }

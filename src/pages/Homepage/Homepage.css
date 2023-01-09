@@ -7,7 +7,7 @@ body, html {
     background-color: white;
 }
 
-.homepage1 {
+.slider, .homepage1, .homepage2 {
     width: 100%;
     margin: 0;
     padding: 0;

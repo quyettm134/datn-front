@@ -1,18 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Imperial+Script');
 @import url('https://fonts.googleapis.com/css?family=Inria+Serif');
 
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    background-color: white;
-}
-
 .header-container {
     position: relative;
-    height: 100%;
+    height: 233px;
 }
 
 .first-section-header {
@@ -115,7 +106,7 @@ body, html {
     color: white;
 }
 
-.cart {
+.cart-header {
     position: absolute;
     width: 150px;
     height: 25px;
@@ -145,7 +136,7 @@ body, html {
 .second-section-header {
     position: absolute;
     width: 100%;
-    height: 233px;
+    height: 175px;
     left: 0px;
     top: 58px;
     background: #1C1D20;
@@ -169,12 +160,11 @@ a {
     position: absolute;
     width: 150px;
     height: 25px;
-    top: 150px;
+    top: 120px;
     font-family: 'Inria Serif';
     font-style: normal;
     font-weight: 500;
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     text-align: center;

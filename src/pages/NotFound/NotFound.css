@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Imperial+Script');
 @import url('https://fonts.googleapis.com/css?family=Inria+Serif');
 
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    background-color: white;
-}
-
 .not-found-container {
     position: relative;
 }

@@ -14,7 +14,7 @@ export default function Header() {
                 <div className="sign-in-icon"><Link to={"/signin"}><BiUserCircle /></Link></div>
                 <div className="sign-in"><Link to={"/signin"}>Sign in</Link></div>
                 <div className="cart-icon"><Link to={"/cart"}><BiCart /></Link></div>
-                <div className="cart"><a href="#"><Link to={"/cart"}>Cart</Link></a></div>
+                <div className="cart-header"><a href="#"><Link to={"/cart"}>Cart</Link></a></div>
                 <div className="search"><a href="#"><BiSearch /></a></div>
             </div>
 

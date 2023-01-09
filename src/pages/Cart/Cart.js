@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import './Cart.css';
+import items from '../../assets/images/items.png';
+import cart_summary from '../../assets/images/cart_summary.png';
 export default function Cart() {
   return (
     <>
@@ -9,31 +12,10 @@ export default function Cart() {
         
         <div className='cart-container'>
             <div className='cart-items'>YOUR SELECTION</div>
-            <div className='Product'>
-                <div className='name'>Ophidia GG medium totea</div>
-                <div className='variation'>Variation: Brown</div>
-                <div className='size'>Size: L</div>
-                <div className='edit'>Edit | Remove | Favourite</div>
-                <div className='editQlt'>
-                    <button></button>
-                    <div className='qlt'>1</div>
-                    <button></button>
-                </div>
-                <div className='price'>$200</div>
-            </div>
-            <div className='Summary'>
-                <div className='title'>Order Summary</div>
-                <div className='body'>
-                    <div className='subtotal'>Subtotal: $200</div>
-                    <div className='shippingfee'>Shippingfee: 5$</div>
-                    <div className='tax'>Estimated tax: 20$</div>
-                    <div className='total'>Estimated total: $225</div>
-                </div>
-                <div className='checkout'>
-                    <button>Check out</button>
-                    <div className='Or'>Or</div>
-                    <button>Payment on delivery</button>
-                </div>
+            <div className='selections-line'></div>
+            <div className='cart-images'>
+                <img src={items} alt='items' className='items'/>
+                <Link to="/paymentsuccess"><img src={cart_summary} alt='cart_summary' className='cart_summary'/></Link>
             </div>
         </div>
 
