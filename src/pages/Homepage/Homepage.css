@@ -1,15 +1,4 @@
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    background-color: white;
-}
-
-.slider, .homepage1, .homepage2 {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0;
+.homepage {
+    position: relative;
+    height: 100vh;
 }

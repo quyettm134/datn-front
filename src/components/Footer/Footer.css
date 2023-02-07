@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Imperial+Script');
 @import url('https://fonts.googleapis.com/css?family=Inria+Serif');
 
-/* .footer-container {
+.footer-container {
     position: relative;
     width: 100%;
+    height: 190px;
     bottom: 0;
     background: #000000;
-} */
+}
 
 /* .first-section-footer {
     display: flex;

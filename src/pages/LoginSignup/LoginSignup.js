@@ -57,39 +57,43 @@ export default function LoginSignup() {
                     </form>}
 
                     {signUp && <form className="user-form-sign-up">
-                        <div className="input-container">
-                            <label>FIRSTNAME</label>
-                            <input type="text" name="firstname" />
-                        </div>
+                        <div className="sign-up-form-container">
+                            <div className="input-container-sign-up">
+                                <label>FIRSTNAME</label>
+                                <input type="text" name="firstname" />
+                            </div>
 
-                        <div className="input-container">
-                            <label>LASTNAME</label>
-                            <input type="password" name="lastname" />
-                        </div>
+                            <div className="input-container-sign-up">
+                                <label>LASTNAME</label>
+                                <input type="password" name="lastname" />
+                            </div>
+                            
+                            <div className="input-container-sign-up">
+                                <label>USERNAME</label>
+                                <input type="text" name="username" />
+                            </div>
 
-                        <div className="input-container">
-                            <label>USERNAME</label>
-                            <input type="text" name="username" />
-                        </div>
+                            <div className="input-container-sign-up">
+                                <label>PASSWORD</label>
+                                <input type="text" name="password" />
+                            </div>
 
-                        <div className="input-container">
-                            <label>PASSWORD</label>
-                            <input type="text" name="password" />
-                        </div>
+                            <div className="input-container-sign-up">
+                                <label>EMAIL</label>
+                                <input type="text" name="email" />
+                            </div>
 
-                        <div className="input-container">
-                            <label>EMAIL</label>
-                            <input type="text" name="email" />
-                        </div>
-
-                        <div className="input-container">
-                            <label>DATE OF BIRTH</label>
-                            <input type="text" name="dob" />
+                            <div className="input-container-sign-up">
+                                <label>DATE OF BIRTH</label>
+                                <input type="text" name="dob" />
+                            </div>
                         </div>
 
                         <div className="button-container">
-                            <Link to="/"><input type="submit" value="SIGN UP"/></Link>
+                            <input type="submit" value="SIGN UP"/>
                         </div>
+
+                        <div className="trademark2">®️KQQ 2022</div>
                     </form>}
                 </div>
 

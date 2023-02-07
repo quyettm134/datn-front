@@ -3,13 +3,15 @@
 
 .header-container {
     position: relative;
-    height: 233px;
+    width: 100%;
+    height: 190px;
+    top: 0;
 }
 
 .first-section-header {
     position: absolute;
     width: 100%;
-    height: 58px;
+    height: 40px;
     left: 0;
     top: 0;
     background: #000000;
@@ -19,23 +21,18 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    font-size: 24px;
-    left: 10px;
-    top: 15px;
+    font-size: 18px;
+    left: 20px;
+    top: 10px;
     color: white;
 }
 
 .address {
     position: absolute;
-    width: 372px;
-    height: 25px;
     left: 50px;
-    top: 16px;
+    top: 10px;
     font-family: 'Inria Serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -46,23 +43,18 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    font-size: 24px;
-    left: 315px;
-    top: 15px;
+    font-size: 18px;
+    left: 260px;
+    top: 10px;
     color: white;
 }
 
 .phone-number {
     position: absolute;
-    width: 263px;
-    height: 25px;
-    left: 350px;
-    top: 16px;
+    left: 290px;
+    top: 10px;
     font-family: 'Inria Serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -73,23 +65,18 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    font-size: 24px;
+    font-size: 18px;
     left: 1200px;
-    top: 15px;
+    top: 10px;
     color: white;
 }
 
 .sign-in {
     position: absolute;
-    width: 150px;
-    height: 25px;
-    left: 1240px;
-    top: 16px;
+    left: 1235px;
+    top: 10px;
     font-family: 'Inria Serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -100,23 +87,18 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    font-size: 24px;
-    left: 1340px;
-    top: 15px;
+    font-size: 18px;
+    left: 1330px;
+    top: 10px;
     color: white;
 }
 
 .cart-header {
     position: absolute;
-    width: 150px;
-    height: 25px;
-    left: 1380px;
-    top: 16px;
+    left: 1365px;
+    top: 12px;
     font-family: 'Inria Serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -128,17 +110,17 @@
     right: 30px;
     width: 40px;
     height: 40px;
-    font-size: 24px;
-    top: 15px;
+    font-size: 28px;
+    top: 7px;
     color: white;
 }
 
 .second-section-header {
     position: absolute;
     width: 100%;
-    height: 175px;
+    height: 150px;
     left: 0px;
-    top: 58px;
+    top: 40px;
     background: #1C1D20;
 }
 
@@ -148,23 +130,19 @@ a {
 }
 
 .brand-name-header {
-    margin: 10px;
+    top: 10;
     text-align: center;
     align-items: center;
     font-family: 'Imperial Script';
-    font-size: 70px;
+    font-size: 55px;
     color: white;
 }
 
 .news, .men, .women, .children, .handbags, .rings, .necklaces, .watches, .others {
     position: absolute;
-    width: 150px;
-    height: 25px;
-    top: 120px;
+    top: 90px;
     font-family: 'Inria Serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     text-align: center;
