@@ -5,7 +5,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ImageSlider from './ImageSlider';
 import slider from "../../assets/images/slider.png";
-import productdetails1 from "../../assets/images/productdetails1.png";
 import productdetails2 from "../../assets/images/productdetails2.png";
 import productdetails3 from "../../assets/images/productdetails3.png";
 import productdetails4 from "../../assets/images/productdetails4.png";
