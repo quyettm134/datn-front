@@ -368,6 +368,474 @@ export default function Profile() {
                         </Row>
                     </Col> : <></>}
 
+                    {pageIndex === 2 ? <Col className="col-md-6 bg-light gy-1" style={{
+                        marginTop: '30px',
+                        marginBottom: '30px'
+                    }}>
+                        <Row className="d-flex align-items-center text-start">
+                            <Row className="fs-2 fw-bold"><p>My returns</p></Row>
+                            <Row><p>You can view all your returned items here</p></Row>
+                        </Row>
+
+                        <hr/>
+                    
+                        <Row className="d-flex justify-content-center text-center fs-5">
+                            <Col className={orderIndex === 0 ? "fw-bold" : ""} onClick={() => setOrderIndex(0)}><p style={{
+                                cursor: 'pointer'
+                            }}>All</p></Col>
+                            <Col className={orderIndex === 1 ? "fw-bold" : ""} onClick={() => setOrderIndex(1)}><p style={{
+                                cursor: 'pointer'
+                            }}>Waiting for confirmation</p></Col>
+                            <Col className={orderIndex === 2 ? "fw-bold" : ""} onClick={() => setOrderIndex(2)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivering</p></Col>
+                            <Col className={orderIndex === 3 ? "fw-bold" : ""} onClick={() => setOrderIndex(3)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivered</p></Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6da41fa-1be4-4ce5-b89c-22be4f1f02d4/air-force-1-07-shoes-WrLlWX.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">Ophidia GG medium totea</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $2,155</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://media.istockphoto.com/id/1061837374/photo/diamond-pendant-isolated-on-white-background-n.jpg?s=612x612&w=0&k=20&c=i24LMIVt5LrQ982SApfbqlKIiohzIRjTcaGjcd1Va3g=" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Canvas bucket hat</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $780</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.3/w_467,c_limit/c8041aad-dac0-42d2-b016-9b27bb6a365e/dri-fit-tiger-woods-legacy91-golf-hat-fsHzBn.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Marmont thin belt</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $640</Row>
+                            </Col>
+                        </Row>
+                    </Col> : <></>}
+
+                    {pageIndex === 3 ? <Col className="col-md-6 bg-light gy-1" style={{
+                        marginTop: '30px',
+                        marginBottom: '30px'
+                    }}>
+                        <Row className="d-flex align-items-center text-start">
+                            <Row className="fs-2 fw-bold"><p>My details</p></Row>
+                            <Row><p>You can view and edit all your personal details here</p></Row>
+                        </Row>
+
+                        <hr/>
+                    
+                        <Row className="d-flex justify-content-center text-center fs-5">
+                            <Col className={orderIndex === 0 ? "fw-bold" : ""} onClick={() => setOrderIndex(0)}><p style={{
+                                cursor: 'pointer'
+                            }}>All</p></Col>
+                            <Col className={orderIndex === 1 ? "fw-bold" : ""} onClick={() => setOrderIndex(1)}><p style={{
+                                cursor: 'pointer'
+                            }}>Waiting for confirmation</p></Col>
+                            <Col className={orderIndex === 2 ? "fw-bold" : ""} onClick={() => setOrderIndex(2)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivering</p></Col>
+                            <Col className={orderIndex === 3 ? "fw-bold" : ""} onClick={() => setOrderIndex(3)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivered</p></Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6da41fa-1be4-4ce5-b89c-22be4f1f02d4/air-force-1-07-shoes-WrLlWX.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">Ophidia GG medium totea</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $2,155</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://media.istockphoto.com/id/1061837374/photo/diamond-pendant-isolated-on-white-background-n.jpg?s=612x612&w=0&k=20&c=i24LMIVt5LrQ982SApfbqlKIiohzIRjTcaGjcd1Va3g=" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Canvas bucket hat</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $780</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.3/w_467,c_limit/c8041aad-dac0-42d2-b016-9b27bb6a365e/dri-fit-tiger-woods-legacy91-golf-hat-fsHzBn.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Marmont thin belt</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $640</Row>
+                            </Col>
+                        </Row>
+                    </Col> : <></>}
+
+                    {pageIndex === 4 ? <Col className="col-md-6 bg-light gy-1" style={{
+                        marginTop: '30px',
+                        marginBottom: '30px'
+                    }}>
+                        <Row className="d-flex align-items-center text-start">
+                            <Row className="fs-2 fw-bold"><p>Payment methods</p></Row>
+                            <Row><p>You can view and edit all your payment methods here</p></Row>
+                        </Row>
+
+                        <hr/>
+                    
+                        <Row className="d-flex justify-content-center text-center fs-5">
+                            <Col className={orderIndex === 0 ? "fw-bold" : ""} onClick={() => setOrderIndex(0)}><p style={{
+                                cursor: 'pointer'
+                            }}>All</p></Col>
+                            <Col className={orderIndex === 1 ? "fw-bold" : ""} onClick={() => setOrderIndex(1)}><p style={{
+                                cursor: 'pointer'
+                            }}>Waiting for confirmation</p></Col>
+                            <Col className={orderIndex === 2 ? "fw-bold" : ""} onClick={() => setOrderIndex(2)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivering</p></Col>
+                            <Col className={orderIndex === 3 ? "fw-bold" : ""} onClick={() => setOrderIndex(3)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivered</p></Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6da41fa-1be4-4ce5-b89c-22be4f1f02d4/air-force-1-07-shoes-WrLlWX.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">Ophidia GG medium totea</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $2,155</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://media.istockphoto.com/id/1061837374/photo/diamond-pendant-isolated-on-white-background-n.jpg?s=612x612&w=0&k=20&c=i24LMIVt5LrQ982SApfbqlKIiohzIRjTcaGjcd1Va3g=" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Canvas bucket hat</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $780</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.3/w_467,c_limit/c8041aad-dac0-42d2-b016-9b27bb6a365e/dri-fit-tiger-woods-legacy91-golf-hat-fsHzBn.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Marmont thin belt</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $640</Row>
+                            </Col>
+                        </Row>
+                    </Col> : <></>}
+
+                    {pageIndex === 5 ? <Col className="col-md-6 bg-light gy-1" style={{
+                        marginTop: '30px',
+                        marginBottom: '30px'
+                    }}>
+                        <Row className="d-flex align-items-center text-start">
+                            <Row className="fs-2 fw-bold"><p>Favorite items</p></Row>
+                            <Row><p>You can see all items you liked here</p></Row>
+                        </Row>
+
+                        <hr/>
+                    
+                        <Row className="d-flex justify-content-center text-center fs-5">
+                            <Col className={orderIndex === 0 ? "fw-bold" : ""} onClick={() => setOrderIndex(0)}><p style={{
+                                cursor: 'pointer'
+                            }}>All</p></Col>
+                            <Col className={orderIndex === 1 ? "fw-bold" : ""} onClick={() => setOrderIndex(1)}><p style={{
+                                cursor: 'pointer'
+                            }}>Waiting for confirmation</p></Col>
+                            <Col className={orderIndex === 2 ? "fw-bold" : ""} onClick={() => setOrderIndex(2)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivering</p></Col>
+                            <Col className={orderIndex === 3 ? "fw-bold" : ""} onClick={() => setOrderIndex(3)}><p style={{
+                                cursor: 'pointer'
+                            }}>Delivered</p></Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6da41fa-1be4-4ce5-b89c-22be4f1f02d4/air-force-1-07-shoes-WrLlWX.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">Ophidia GG medium totea</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $2,155</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://media.istockphoto.com/id/1061837374/photo/diamond-pendant-isolated-on-white-background-n.jpg?s=612x612&w=0&k=20&c=i24LMIVt5LrQ982SApfbqlKIiohzIRjTcaGjcd1Va3g=" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Canvas bucket hat</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $780</Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.3/w_467,c_limit/c8041aad-dac0-42d2-b016-9b27bb6a365e/dri-fit-tiger-woods-legacy91-golf-hat-fsHzBn.png" style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0">GG Marmont thin belt</Row>
+                                <Row className="gy-0">Variation: Brown</Row>
+                                <Row className="gy-0">Size: L</Row>
+                            </Col>
+
+                            <Col xs={1}>
+                                <div className="vr" style={{
+                                    height: '130px'
+                                }}></div>
+                            </Col>
+
+                            <Col className="col-sm-3 fs-5">
+                                <Row className="gy-0 d-inline-block" style={{
+                                    backgroundColor: '#F6F2F2'
+                                }}>QTY: x1</Row>
+                                <Row className="gy-0">Price: $640</Row>
+                            </Col>
+                        </Row>
+                    </Col> : <></>}
+
                     {pageIndex === 6 ? <Col className="col-md-6 bg-light gy-1" style={{
                         marginTop: '30px',
                         marginBottom: '30px'
@@ -375,6 +843,162 @@ export default function Profile() {
                         <Row className="d-flex align-items-center text-start">
                             <Row className="fs-2 fw-bold"><p>My vouchers</p></Row>
                             <Row><p>You can view all your vouchers here</p></Row>
+                        </Row>
+
+                        <hr/>
+                    
+                        <Row className="d-flex justify-content-center text-center fs-5">
+                            <Col className="col-xl-6"><p style={{marginLeft: "200px"}}>Sort by:</p></Col>
+                            <Col xs={1}>
+                                <select class="form-select" style={{width: '120px'}} aria-label="Default select example">
+                                    <option selected>Select</option>
+                                    <option value="1">Lastest</option>
+                                    <option value="2">Remain date</option>
+                                    <option value="3">In use</option>
+                                </select>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex shadow">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src={Logo} style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0 fs-3" style={{color: "red"}}><p>5% off</p></Row>
+                                <Row className="gy-0"><p>Minimum order <span style={{color: "red"}}>150$</span></p></Row>
+                                <Row className="gy-0"><p>Maximum discount <span style={{color: "red"}}>50$</span></p></Row>
+                                <Row className="gy-0" style={{color: "red"}}><p><BsClock /> Valid after: 1 day</p></Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex shadow">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src={Logo} style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0 fs-3" style={{color: "red"}}><p>5% off</p></Row>
+                                <Row className="gy-0"><p>Minimum order <span style={{color: "red"}}>150$</span></p></Row>
+                                <Row className="gy-0"><p>Maximum discount <span style={{color: "red"}}>50$</span></p></Row>
+                                <Row className="gy-0" style={{color: "red"}}><p><BsClock /> Valid after: 1 day</p></Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex shadow">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src={Logo} style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0 fs-3" style={{color: "red"}}><p>5% off</p></Row>
+                                <Row className="gy-0"><p>Minimum order <span style={{color: "red"}}>150$</span></p></Row>
+                                <Row className="gy-0"><p>Maximum discount <span style={{color: "red"}}>50$</span></p></Row>
+                                <Row className="gy-0" style={{color: "red"}}><p><BsClock /> Valid after: 1 day</p></Row>
+                            </Col>
+                        </Row>
+                    </Col> : <></>}
+
+                    {pageIndex === 7 ? <Col className="col-md-6 bg-light gy-1" style={{
+                        marginTop: '30px',
+                        marginBottom: '30px'
+                    }}>
+                        <Row className="d-flex align-items-center text-start">
+                            <Row className="fs-2 fw-bold"><p>Change password</p></Row>
+                            <Row><p>You can change your password here</p></Row>
+                        </Row>
+
+                        <hr/>
+                    
+                        <Row className="d-flex justify-content-center text-center fs-5">
+                            <Col className="col-xl-6"><p style={{marginLeft: "200px"}}>Sort by:</p></Col>
+                            <Col xs={1}>
+                                <select class="form-select" style={{width: '120px'}} aria-label="Default select example">
+                                    <option selected>Select</option>
+                                    <option value="1">Lastest</option>
+                                    <option value="2">Remain date</option>
+                                    <option value="3">In use</option>
+                                </select>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex shadow">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src={Logo} style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0 fs-3" style={{color: "red"}}><p>5% off</p></Row>
+                                <Row className="gy-0"><p>Minimum order <span style={{color: "red"}}>150$</span></p></Row>
+                                <Row className="gy-0"><p>Maximum discount <span style={{color: "red"}}>50$</span></p></Row>
+                                <Row className="gy-0" style={{color: "red"}}><p><BsClock /> Valid after: 1 day</p></Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex shadow">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src={Logo} style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0 fs-3" style={{color: "red"}}><p>5% off</p></Row>
+                                <Row className="gy-0"><p>Minimum order <span style={{color: "red"}}>150$</span></p></Row>
+                                <Row className="gy-0"><p>Maximum discount <span style={{color: "red"}}>50$</span></p></Row>
+                                <Row className="gy-0" style={{color: "red"}}><p><BsClock /> Valid after: 1 day</p></Row>
+                            </Col>
+                        </Row>
+
+                        <hr/>
+
+                        <Row className="d-flex shadow">
+                            <Col className="col-sm-4 gx-xxl-5">
+                                <Image className="shadow justify-content-start" src={Logo} style={{
+                                    width: '150px',
+                                    height: '150px',
+                                }}/>
+                            </Col>
+
+                            <Col className="col-sm-4 justify-content-start fs-5">
+                                <Row className="gy-0 fs-3" style={{color: "red"}}><p>5% off</p></Row>
+                                <Row className="gy-0"><p>Minimum order <span style={{color: "red"}}>150$</span></p></Row>
+                                <Row className="gy-0"><p>Maximum discount <span style={{color: "red"}}>50$</span></p></Row>
+                                <Row className="gy-0" style={{color: "red"}}><p><BsClock /> Valid after: 1 day</p></Row>
+                            </Col>
+                        </Row>
+                    </Col> : <></>}
+
+                    {pageIndex === 8 ? <Col className="col-md-6 bg-light gy-1" style={{
+                        marginTop: '30px',
+                        marginBottom: '30px'
+                    }}>
+                        <Row className="d-flex align-items-center text-start">
+                            <Row className="fs-2 fw-bold"><p>Customer services</p></Row>
+                            <Row><p>What can we help you with ?</p></Row>
                         </Row>
 
                         <hr/>
