@@ -31,7 +31,7 @@ export default function Profile() {
                         <Row className="d-flex gy-2">
                             <p>Account overview</p>
                         </Row>
-                        
+
                         <Row><p>My orders</p></Row>
                         <Row><p>My returns</p></Row>
                         <Row><p>My details</p></Row>
