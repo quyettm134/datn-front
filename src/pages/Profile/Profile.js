@@ -15,18 +15,23 @@ export default function Profile() {
                     <Col xs={1}></Col>
                     
                     <Col className="col-md-5 bg-light text-center">
-                        <Row className="d-flex">
-                            <Row className="justify-content-start">
+                        <Row className="d-flex gy-5">
+                            <Col className="justify-content-start gy-2">
                                 <Image className="shadow" src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" style={{
                                     width: '200px',
                                     height: '200px',
                                 }} roundedCircle/>
-
-                                <p>Hello, Thai Dinh Kha</p>
-                            </Row>    
+                            </Col>
+                            <Col className="align-self-center text-start">
+                                <p className="text fs-1">Hello,</p>
+                                <p className="text fs-2 fw-bold">Thai Dinh Kha</p>
+                            </Col>
                         </Row>
 
-                        <Row><p>Account overview</p></Row>
+                        <Row className="d-flex gy-2">
+                            <p>Account overview</p>
+                        </Row>
+                        
                         <Row><p>My orders</p></Row>
                         <Row><p>My returns</p></Row>
                         <Row><p>My details</p></Row>
