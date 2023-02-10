@@ -14,16 +14,24 @@ export default function Header() {
                 alignItems: "center"
             }}>
                 <Col className="col-md-auto" style={{cursor: "pointer"}}><BsPinMap />{' '}Ho Chi Minh city - Vietnam</Col>
-                <Col style={{cursor: "pointer"}}><BsTelephone />{' '}+84 987654321</Col>
+                <Col style={{
+                    cursor: "pointer",
+                    marginLeft: "15px"
+                }}><BsTelephone />{' '}+84 987654321</Col>
                 <Col className="col-md-auto"><BsPerson />{' '}<Link to="/signin" style={{
                     color: "#ffffff", 
-                    textDecoration: "none"
+                    textDecoration: "none",
+                    marginRight: "15px"
                 }}>Sign in</Link></Col>
                 <Col className="col-md-auto"><BsCart3 />{' '}<Link to="/cart" style={{
                     color: "#ffffff", 
-                    textDecoration: "none"
+                    textDecoration: "none",
+                    marginRight: "15px"
                 }}>Cart</Link></Col>
-                <Col className="col-sm-auto"><BsSearch style={{cursor: "pointer"}}/></Col>
+                <Col className="col-md-auto" style={{
+                    marginRight: "15px",
+                    paddingRight: "25px"
+                }}><BsSearch style={{cursor: "pointer"}}/></Col>
             </Row>
 
             <Row className="d-flex" style={{

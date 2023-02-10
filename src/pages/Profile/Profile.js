@@ -16,6 +16,7 @@ export default function Profile() {
 
             <Container className="profile-content" fluid style={{
                 backgroundColor: '#EDEBEB',
+                width: '100vw',
             }}>
                 <Row className="d-flex justify-content-center">
                     <Col style={{
@@ -850,7 +851,7 @@ export default function Profile() {
                         <Row className="d-flex justify-content-center text-center fs-5">
                             <Col className="col-xl-6"><p style={{marginLeft: "200px"}}>Sort by:</p></Col>
                             <Col xs={1}>
-                                <select class="form-select" style={{width: '120px'}} aria-label="Default select example">
+                                <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
                                     <option selected>Select</option>
                                     <option value="1">Lastest</option>
                                     <option value="2">Remain date</option>

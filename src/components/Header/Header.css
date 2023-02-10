@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Imperial+Script');
-@import url('https://fonts.googleapis.com/css?family=Inria+Serif');
-
 .header-content {
     font-family: "Inria Serif";
+    width: 100vw;
 }
 
 .brand-name-header {
