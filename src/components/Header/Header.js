@@ -13,8 +13,8 @@ export default function Header() {
                 height: "35px",
                 alignItems: "center"
             }}>
-                <Col className="col-md-auto"><BsPinMap />{' '}Ho Chi Minh city - Vietnam</Col>
-                <Col><BsTelephone />{' '}+84 987654321</Col>
+                <Col className="col-md-auto" style={{cursor: "pointer"}}><BsPinMap />{' '}Ho Chi Minh city - Vietnam</Col>
+                <Col style={{cursor: "pointer"}}><BsTelephone />{' '}+84 987654321</Col>
                 <Col className="col-md-auto"><BsPerson />{' '}<Link to="/signin" style={{
                     color: "#ffffff", 
                     textDecoration: "none"
