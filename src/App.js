@@ -1,5 +1,5 @@
 import React from 'react';
-import Homepage from './pages/Homepage/Homepage';
+// import Homepage from './pages/Homepage/Homepage';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
