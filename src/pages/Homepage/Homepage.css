@@ -1,4 +1,5 @@
-.homepage {
-    position: relative;
-    height: 100vh;
+.homepage-content {
+    font-family: 'Inria Serif';
+    background-color: '#EDEBEB';
+    width: '100vw',
 }

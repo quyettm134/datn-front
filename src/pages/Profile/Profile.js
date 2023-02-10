@@ -11,13 +11,10 @@ export default function Profile() {
     const [orderIndex, setOrderIndex] = useState(0);
 
     return (
-        <>
+        <div className="vw-100">
             <Header/>
 
-            <Container className="profile-content" fluid style={{
-                backgroundColor: '#EDEBEB',
-                width: '100vw',
-            }}>
+            <Container className="profile-content" fluid>
                 <Row className="d-flex justify-content-center">
                     <Col style={{
                         width: '10px'
@@ -1076,6 +1073,6 @@ export default function Profile() {
             </Container>
 
             <Footer/>
-        </>
+        </div>
     )
 }

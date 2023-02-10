@@ -5,7 +5,7 @@ import Logo from "../../assets/images/Logo.png";
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter, BsYoutube } from "react-icons/bs";
 export default function Footer() {
     return (
-        <Container fluid className="footer-content" style={{
+        <Container fluid className="footer-content vw-auto" style={{
             height: '190px',
             backgroundColor: '#000000',
             color: '#ffffff',

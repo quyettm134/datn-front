@@ -6,7 +6,7 @@ import { BsCart3, BsPerson, BsPinMap, BsSearch, BsTelephone } from "react-icons/
 
 export default function Header() {
     return (
-        <Container fluid className="header-content">
+        <Container fluid className="header-content vw-auto">
             <Row className="d-flex" style={{
                 color: "#ffffff",
                 backgroundColor: "#000000",

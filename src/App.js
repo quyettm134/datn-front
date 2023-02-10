@@ -1,5 +1,5 @@
 import React from 'react';
-// import Homepage from './pages/Homepage/Homepage';
+import Homepage from './pages/Homepage/Homepage';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
@@ -19,10 +19,11 @@ export default function App() {
     return (
         <BrowserRouter className='app'>
             <Routes>
-                <Route path="/" element={<Profile />}/>
+                <Route path="/" element={<Homepage />}/>
                 <Route path="/signin" element={<LoginSignup />}/>
                 <Route path="/productdetails" element={<ProductDetails />}/>
                 <Route path="/cart" element={<Cart />}/>
+                <Route path="/profile" element={<Profile />}/>
                 <Route path="/paymentsuccess" element={<PaymentSuccess />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
