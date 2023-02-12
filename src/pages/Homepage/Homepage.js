@@ -1,15 +1,16 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { Row, Col, Container, Carousel, Button, Image } from "react-bootstrap";
+import { Row, Col, Container, Carousel, Button, Image, Card } from "react-bootstrap";
 import './Homepage.css';
+import { BsArrowRight, BsCart, BsHeart } from "react-icons/bs";
 export default function Homepage() {
     return (
         <div className="vw-100">
             <Header />
 
             <Container fluid className="homepage-content vw-auto">
-                <Row className="d-flex justify-content-center">
+                <Row className="d-flex justify-content-center align-items-stretch" style={{paddingBottom: '30px'}}> {/* Slider */}
                     <Carousel style={{
                         display: 'block',
                         margin: '0 auto',
@@ -140,9 +141,199 @@ export default function Homepage() {
                     </Carousel>
                 </Row>
 
-                <Row></Row>
+                <Row className="d-flex justify-content-center align-items-stretch" style={{paddingBottom: '30px'}}> {/* Trending */}
+                    <Row className="row-xl-auto">
+                        <Col>
+                            <p className="fs-1 fw-bolder">TRENDING</p>
+                        </Col>
+                        <Col className="col-md-auto align-self-center" style={{paddingRight: '10px'}}>
+                            <p className="fs-4 fw-bold" style={{cursor: 'pointer'}}>See all <BsArrowRight /></p>
+                        </Col>
+                    </Row>
+                    <Row className="row-xl-auto">
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Row>
 
-                <Row></Row>
+                <Row className="d-flex justify-content-center align-items-stretch" style={{paddingBottom: '30px'}}> {/* Best seller */}
+                    <Row className="row-xl-auto">
+                        <Col>
+                            <p className="fs-1 fw-bolder">BEST SELLERS</p>
+                        </Col>
+                        <Col className="col-md-auto align-self-center" style={{paddingRight: '10px'}}>
+                            <p className="fs-4 fw-bold" style={{cursor: 'pointer'}}>See all <BsArrowRight /></p>
+                        </Col>
+                    </Row>
+                    <Row className="row-xl-auto">
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="col-md-auto">
+                            <Card style={{backgroundColor: '#ffffff'}}>
+                                <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                                <Card.Body>
+                                    <Row>
+                                        <Col>
+                                            <Card.Text>Ophidia GG medium totea</Card.Text>
+                                            <Card.Text>$200</Card.Text>
+                                        </Col>
+                                        <Col>
+                                            <Row style={{paddingBottom: '10px'}}>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsHeart style={{color: 'red', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                            <Row>
+                                                <Button style={{ backgroundColor: '#ffffff', borderColor: '#ffffff'}} className="text-end"><BsCart style={{color: 'green', width: '20px', height: '20px'}}/></Button>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Row>
             </Container>
 
             <Footer />
