@@ -846,8 +846,9 @@ export default function Profile() {
                         <hr/>
                     
                         <Row className="d-flex justify-content-center text-center fs-5">
-                            <Col className="col-xl-6"><p style={{marginLeft: "200px"}}>Sort by:</p></Col>
-                            <Col xs={1}>
+                            <Col></Col>
+                            <Col className="col-md-auto align-self-center"><p>Sort by:</p></Col>
+                            <Col className="col-md-auto">
                                 <select className="form-select" style={{width: '120px'}} aria-label="Default select example">
                                     <option selected>Select</option>
                                     <option value="1">Lastest</option>
