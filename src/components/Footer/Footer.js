@@ -30,11 +30,11 @@ export default function Footer() {
                     <Row style={{
                         marginTop: '20px'
                     }}>
-                        <Col className="col-md-auto"><BsFacebook /></Col>
-                        <Col className="col-md-auto"><BsTwitter /></Col>
-                        <Col className="col-md-auto"><BsInstagram /></Col>
-                        <Col className="col-md-auto"><BsYoutube /></Col>
-                        <Col className="col-md-auto"><BsLinkedin /></Col>
+                        <Col className="col-md-auto" style={{cursor: 'pointer'}}><BsFacebook /></Col>
+                        <Col className="col-md-auto" style={{cursor: 'pointer'}}><BsTwitter /></Col>
+                        <Col className="col-md-auto" style={{cursor: 'pointer'}}><BsInstagram /></Col>
+                        <Col className="col-md-auto" style={{cursor: 'pointer'}}><BsYoutube /></Col>
+                        <Col className="col-md-auto" style={{cursor: 'pointer'}}><BsLinkedin /></Col>
                     </Row>
                 </Col>
 
@@ -43,20 +43,20 @@ export default function Footer() {
                     marginLeft: '25px'
                 }}>
                     <Row>CATEGORY</Row>
-                    <Row style={{marginTop: '10px', cursor: 'pointer'}}>Handbags</Row>
-                    <Row style={{marginTop: '5px', cursor: 'pointer'}}>Rings</Row>
-                    <Row style={{marginTop: '5px', cursor: 'pointer'}}>Necklaces</Row>
-                    <Row style={{marginTop: '5px', cursor: 'pointer'}}>Watches</Row>
+                    <Row className="footer-link" style={{marginTop: '10px', cursor: 'pointer'}}>Handbags</Row>
+                    <Row className="footer-link" style={{marginTop: '5px', cursor: 'pointer'}}>Rings</Row>
+                    <Row className="footer-link" style={{marginTop: '5px', cursor: 'pointer'}}>Necklaces</Row>
+                    <Row className="footer-link" style={{marginTop: '5px', cursor: 'pointer'}}>Watches</Row>
                 </Col>
                 <Col className="col-md-2" style={{
                     marginTop: '25px',
                     marginRight: '25px'
                 }}>
                     <Row>SUPPORT</Row>
-                    <Row style={{marginTop: '10px', cursor: 'pointer'}}>Shipping Services</Row>
-                    <Row style={{marginTop: '5px', cursor: 'pointer'}}>Payment Options</Row>
-                    <Row style={{marginTop: '5px', cursor: 'pointer'}}>Return & Exchanges</Row>
-                    <Row style={{marginTop: '5px', cursor: 'pointer'}}>Contact Us</Row>
+                    <Row className="footer-link" style={{marginTop: '10px', cursor: 'pointer'}}>Shipping Services</Row>
+                    <Row className="footer-link" style={{marginTop: '5px', cursor: 'pointer'}}>Payment Options</Row>
+                    <Row className="footer-link" style={{marginTop: '5px', cursor: 'pointer'}}>Return & Exchanges</Row>
+                    <Row className="footer-link" style={{marginTop: '5px', cursor: 'pointer'}}>Contact Us</Row>
                 </Col>
 
                 <Col className="col-md-3" style={{

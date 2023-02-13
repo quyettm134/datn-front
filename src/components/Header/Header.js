@@ -49,15 +49,15 @@ export default function Header() {
                     }}>KQQ</Link></Col>
                 </Row>
                 <Row style={{marginLeft: "10px"}}>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>What's new</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Men</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Women</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Children</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Handbags</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Rings</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Necklaces</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Watches</p></Col>
-                    <Col className="text-center fs-5"><p style={{cursor: "pointer"}}>Others</p></Col>
+                    <Col className="text-center fs-5 header-link"><Link to="/" style={{textDecoration:'none', color: 'white'}}><p>What's new</p></Link></Col>
+                    <Col className="text-center fs-5 header-link"><Link to="/men" style={{textDecoration:'none', color: 'white'}}><p>Men</p></Link></Col>
+                    <Col className="text-center fs-5 header-link"><Link to="/women" style={{textDecoration:'none', color: 'white'}}><p>Women</p></Link></Col>
+                    <Col className="text-center fs-5 header-link"><p>Children</p></Col>
+                    <Col className="text-center fs-5 header-link"><p>Handbags</p></Col>
+                    <Col className="text-center fs-5 header-link"><p>Rings</p></Col>
+                    <Col className="text-center fs-5 header-link"><p>Necklaces</p></Col>
+                    <Col className="text-center fs-5 header-link"><p>Watches</p></Col>
+                    <Col className="text-center fs-5 header-link"><p>Others</p></Col>
                 </Row>
             </Row>
         </Container>

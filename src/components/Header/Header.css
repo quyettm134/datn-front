@@ -6,3 +6,7 @@
 .brand-name-header {
     font-family: "Imperial Script" !important;
 }
+
+.header-link:hover {
+    text-decoration: underline;
+}

@@ -2,3 +2,7 @@
     width: 100vw;
     font-family: "Inria Serif";
 }
+
+.footer-link:hover {
+    text-decoration: underline;
+}
