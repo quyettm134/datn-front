@@ -1,3 +1,23 @@
+// import React from 'react';
+// import Header from '../../components/Header/Header';
+// import Footer from '../../components/Footer/Footer';
+// import './ProductDetails.css';
+// import { Container } from 'react-bootstrap';
+
+// export default function ProductDetails() {
+//     return (
+//         <div className='vw-100'>
+//             <Header />
+
+//             <Container fluid className='product-details-content vw-auto'>
+
+//             </Container>
+
+//             <Footer/>
+//         </div>
+//     )
+// }
+
 import React from 'react';
 import Header from '../../components/Header/Header';
 import './ProductDetails.css';
