@@ -1,26 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import { Container, Row, Col } from 'react-bootstrap';
 import './Cart.css';
-import items from '../../assets/images/items.png';
-import cart_summary from '../../assets/images/cart_summary.png';
-export default function Cart() {
-  return (
-    <>
-        <Header />
-        
-        <div className='cart-container'>
-            <div className='cart-items'>YOUR SELECTION</div>
-            <div className='selections-line'></div>
-            <div className='cart-images'>
-                <img src={items} alt='items' className='items'/>
-                <Link to="/paymentsuccess"><img src={cart_summary} alt='cart_summary' className='cart_summary'/></Link>
-            </div>
-        </div>
 
-        <Footer />
-    </>
-    
-  )
+export default function Cart() {
+    return (
+        <div className='vw-100'>
+            <Header />
+
+            <Container fluid className='cart-content vw-auto'>
+                <Row className='row-xl-auto' style={{paddingTop: '15px', paddingLeft: '15px'}}>
+                    <p className='fs-2 fw-bold'>YOUR SELECTIONS</p>
+                </Row>
+
+                <hr/>
+
+                <Row></Row>
+            </Container>
+
+            <Footer />
+        </div>
+    )
 }

@@ -145,7 +145,7 @@ export default function Homepage() {
                 <Row className="d-flex justify-content-center align-items-stretch" style={{paddingBottom: '30px'}}> {/* Trending */}
                     <Row className="row-xl-auto">
                         <Col>
-                            <p className="fs-1 fw-bolder trending">TRENDING</p>
+                            <p className="fs-1 fw-bolder">TRENDING</p>
                         </Col>
                         <Col className="col-lg-auto align-self-center">
                             <p className="fs-4 fw-bold" style={{cursor: 'pointer'}}>See all <BsArrowRight /></p>

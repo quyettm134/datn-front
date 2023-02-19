@@ -1,54 +1,367 @@
-// import React from 'react';
-// import Header from '../../components/Header/Header';
-// import Footer from '../../components/Footer/Footer';
-// import './ProductDetails.css';
-// import { Container } from 'react-bootstrap';
-
-// export default function ProductDetails() {
-//     return (
-//         <div className='vw-100'>
-//             <Header />
-
-//             <Container fluid className='product-details-content vw-auto'>
-
-//             </Container>
-
-//             <Footer/>
-//         </div>
-//     )
-// }
-
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import './ProductDetails.css';
+import { Container, Row, Col, Carousel, Image, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import productdetails1 from '../../assets/images/productdetails1.png';
-import productdetails2 from '../../assets/images/productdetails2.png';
-import productdetails3 from '../../assets/images/productdetails3.png';
-import productdetails4 from '../../assets/images/productdetails4.png';
-import productdetails5 from '../../assets/images/productdetails5.png';
-import addtocart from '../../assets/images/addtocart.png';
-import footer from '../../assets/images/footer.png';
+import { BsArrowLeftSquare, BsHeart, BsPersonCircle, BsStarFill, BsStarHalf, BsTruck } from 'react-icons/bs';
 
 export default function ProductDetails() {
+    const [showDetails, setShowDetails] = useState(true);
+    const [showRating, setShowRating] = useState(false);
+    const [showComments, setShowComments] = useState(5);
+
     return (
-        <>
+        <div className='vw-100'>
             <Header />
 
-            <div className='product-details-container'>
-                <div className='product-images'>
-                    <img src={productdetails1} alt='productdetails1' className='productdetails1'/>
-                    <img src={productdetails2} alt='productdetails2' className='productdetails2'/>
-                    <img src={productdetails3} alt='productdetails3' className='productdetails3'/>
-                    <img src={productdetails4} alt='productdetails4' className='productdetails4'/>
-                    <img src={productdetails5} alt='productdetails5' className='productdetails5'/>
-                    <Link to="/cart">
-                        <img src={addtocart} alt='addtocart' className='addtocart'/>
-                    </Link>
-                </div>
-            </div>
+            <Container fluid className='product-details-content vw-auto'>
+                <Row className="d-flex" style={{paddingTop: '30px', paddingBottom: '30px'}}>
+                    <Row>
+                        <Col>
+                            <Row className='justify-content-end' style={{paddingBottom: '10px'}}>
+                                <Image style={{
+                                    width: '140px',
+                                    height: '150px'
+                                }} src='https://previews.123rf.com/images/rglinsky/rglinsky1201/rglinsky120100188/12336990-vertical-image-orient%C3%A9e-de-la-c%C3%A9l%C3%A8bre-tour-eiffel-%C3%A0-paris-france-.jpg'/>
+                            </Row>
+                            <Row className='justify-content-end' style={{paddingBottom: '10px'}}>
+                                <Image style={{
+                                    width: '140px',
+                                    height: '150px'
+                                }} src='https://images.adsttc.com/media/images/5b08/b87c/f197/ccb5/4900/00bd/medium_jpg/The_S_02_filter_edit2_06.jpg?1527298139'/>
+                            </Row>
+                            <Row className='justify-content-end' style={{paddingBottom: '10px'}}>
+                                <Image style={{
+                                    width: '140px',
+                                    height: '150px'
+                                }} src='https://thumbs.dreamstime.com/b/vertical-shot-canal-venice-italy-boats-old-houses-193711930.jpg'/>
+                            </Row>
+                            <Row></Row>
+                        </Col>
 
-            <img src={footer} alt='footer' className='product-footer'/>
-        </>
+                        <Col>
+                            <Carousel>
+                                <Carousel.Item interval={3000} style={{
+                                    width: '330px',
+                                    height: '600px'
+                                }}>
+                                    <Image src='https://previews.123rf.com/images/rglinsky/rglinsky1201/rglinsky120100188/12336990-vertical-image-orient%C3%A9e-de-la-c%C3%A9l%C3%A8bre-tour-eiffel-%C3%A0-paris-france-.jpg'/>
+                                </Carousel.Item>
+                                <Carousel.Item interval={3000} style={{
+                                    width: '330px',
+                                    height: '600px'
+                                }}>
+                                    <Image src='https://images.adsttc.com/media/images/5b08/b87c/f197/ccb5/4900/00bd/medium_jpg/The_S_02_filter_edit2_06.jpg?1527298139'/>
+                                </Carousel.Item>
+                                <Carousel.Item interval={3000} style={{
+                                    width: '330px',
+                                    height: '600px'
+                                }}>
+                                    <Image src='https://thumbs.dreamstime.com/b/vertical-shot-canal-venice-italy-boats-old-houses-193711930.jpg'/>
+                                </Carousel.Item>
+                            </Carousel>
+                        </Col>
+                        
+                        <Col style={{marginLeft: '20px'}}>
+                            <Row>
+                                <p className='fs-3 fw-bold'>Ophidia GG Medium Totea</p>
+                            </Row>
+                            <Row style={{paddingBottom: '15px'}}>
+                                <Col>
+                                    <BsStarFill style={{width: '25px', height: '25px'}}/><BsStarFill style={{width: '25px', height: '25px'}}/><BsStarFill style={{width: '25px', height: '25px'}}/><BsStarFill style={{width: '25px', height: '25px'}}/><BsStarHalf style={{width: '25px', height: '25px'}}/>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Row><p className='fs-4'>$200</p></Row>
+                                <Row><p className='fs-4'>Color: Black</p></Row>
+                            </Row>
+                            <Row style={{paddingBottom: '30px'}}>
+                                <Col>
+                                    <Link to="/cart">
+                                        <Button variant='dark' style={{width: '250px', borderRadius: '25px'}}>ADD TO CART</Button>
+                                    </Link>
+                                    <BsHeart style={{width: '30px', height: '30px', marginLeft: '25px', cursor: 'pointer'}}/>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <div style={{width: '300px', height: '150px', border: '1px solid #B59797'}}>
+                                    <Row style={{paddingTop: '15px', paddingBottom: '10px'}}>
+                                        <Col>
+                                            <BsTruck style={{width: '25px', height: '25px'}}/>{' '}<span style={{fontSize: '18px', marginLeft: '10px'}}>Free delivery</span>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <BsArrowLeftSquare style={{width: '25px', height: '25px'}}/>{' '}<span style={{fontSize: '18px', marginLeft: '10px'}}>Free return in 7 days</span>
+                                        </Col>
+                                    </Row>
+                                    <hr/>
+                                    <Row>
+                                        <p style={{fontSize: '14px', textDecoration: 'underline', cursor: 'pointer'}}>This product has shipping policies</p>
+                                    </Row>
+                                </div>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Row>
+
+                <hr/>
+
+                <Row className="d-flex">
+                    <Row style={{paddingBottom: '30px'}}>
+                        <Col>
+                            <Row className='justify-content-end'>
+                                <Button 
+                                    variant={showDetails === true ? 'dark' : 'light'} 
+                                    style={{width: '100px'}}
+                                    onClick={() => {
+                                        setShowDetails(true);
+                                        setShowRating(false);
+                                    }}
+                                >Detail</Button>
+                            </Row>
+                        </Col>
+                        <Col className='col-sm-auto'></Col>
+                        <Col>
+                            <Row>
+                                <Button 
+                                    variant={showRating === true ? 'dark' : 'light'} 
+                                    style={{width: '100px'}}
+                                    onClick={() => {
+                                        setShowRating(true); 
+                                        setShowDetails(false);
+                                    }}
+                                >Rating</Button>
+                            </Row>
+                        </Col>
+                    </Row>
+
+                    {showDetails && <Row>
+                        <Col className='col-sm-1'></Col>
+                        <Col>
+                            <Row>
+                                <p className='fs-4 fw-bold'>PRODUCT DETAILS</p>
+                            </Row>
+                            <Row>
+                                <p>Accessories by ASOS DESIGN</p>
+                            </Row>
+                            <Row>
+                                <p>• Accessorising is the best part</p>
+                            </Row>
+                            <Row>
+                                <p>• Cobweb design</p>
+                            </Row>
+                            <Row>
+                                <p>• Adjustable length</p>
+                            </Row>
+                            <Row>
+                                <p>• Lobster clasp</p>
+                            </Row>
+                        </Col>
+
+                        <Col style={{paddingRight: '30px'}}>
+                            <Row>
+                                <p className='fs-4 fw-bold'>PRODUCT CODE</p>
+                            </Row>
+                            <Row>
+                                <p>120003210</p>
+                            </Row>
+                            <Row>
+                                <p className='fs-4 fw-bold'>BRAND</p>
+                            </Row>
+                            <Row>
+                                <p>
+                                    This is ASOS DESIGN – your go-to for all the latest trends, 
+                                    no matter who you are, where you’re from and what you’re up to. 
+                                    Exclusive to ASOS, our universal brand is here for you, and comes 
+                                    in all our fit ranges: ASOS Curve, Tall, ...
+                                </p>
+                            </Row>
+                        </Col>
+                        
+                        <Col style={{paddingLeft: '30px'}}>
+                            <Row>
+                                <p className='fs-4 fw-bold'>PRODUCT CARE</p>
+                            </Row>
+                            <Row>
+                                <p>Avoid contact with liquids</p>
+                            </Row>
+                            <Row>
+                                <p className='fs-4 fw-bold'>ABOUT</p>
+                            </Row>
+                            <Row>
+                                <p>Silver-tone base metal</p>
+                            </Row>
+                            <Row>
+                                <p>Necklace: 80% Polyester, 20% Steel</p>
+                            </Row>
+                        </Col>
+                    </Row>}
+
+                    {showRating && <Row>
+                        <Row style={{marginLeft: '50px', paddingBottom: '20px'}}>
+                            <Col className='col-lg-3'></Col>
+
+                            <Col className='col-md-auto'>
+                                <Row className='justify-content-end'>
+                                    <p className='fs-3 fw-bold'>4.5 / 5</p>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <BsStarFill style={{width: '25px', height: '25px'}}/><BsStarFill style={{width: '25px', height: '25px'}}/><BsStarFill style={{width: '25px', height: '25px'}}/><BsStarFill style={{width: '25px', height: '25px'}}/><BsStarHalf style={{width: '25px', height: '25px'}}/>
+                                    </Col>
+                                </Row>
+                            </Col>
+
+                            <Col>
+                                <Row>
+                                    <Col className='col-sm-auto'>
+                                        <Button 
+                                            variant={showComments === 5 ? 'dark' : 'light'} 
+                                            style={{width: '80px', height: '35px'}}
+                                            onClick={() => setShowComments(5)}
+                                        >5 Stars</Button>
+                                    </Col>
+                                    <Col className='col-sm-auto'>
+                                        <Button 
+                                            variant={showComments === 4 ? 'dark' : 'light'} 
+                                            style={{width: '80px', height: '35px'}}
+                                            onClick={() => setShowComments(4)}
+                                        >4 Stars</Button>
+                                    </Col>
+                                    <Col className='col-sm-auto'>
+                                        <Button 
+                                            variant={showComments === 3 ? 'dark' : 'light'} 
+                                            style={{width: '80px', height: '35px'}}
+                                            onClick={() => setShowComments(3)}
+                                        >3 Stars</Button>
+                                    </Col>
+                                    <Col className='col-sm-auto'>
+                                        <Button 
+                                            variant={showComments === 2 ? 'dark' : 'light'} 
+                                            style={{width: '80px', height: '35px'}}
+                                            onClick={() => setShowComments(2)}
+                                        >2 Stars</Button>
+                                    </Col>
+                                    <Col>
+                                        <Button 
+                                            variant={showComments === 1 ? 'dark' : 'light'} 
+                                            style={{width: '80px', height: '35px'}}
+                                            onClick={() => setShowComments(1)}
+                                        >1 Stars</Button>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+
+                        <Row className='d-flex justify-content-center' style={{paddingBottom: '20px'}}>
+                            <Form.Control style={{
+                                width: '800px',
+                                height: '50px'
+                            }} placeholder='Write something...'></Form.Control>
+                        </Row>
+
+                        <Row>
+                            <Row style={{paddingBottom: '20px'}}>
+                                <Col className='d-flex justify-content-end'>
+                                    <BsPersonCircle style={{width: '30px', height: '30px'}}/>
+                                </Col>
+                                <Col className='col-lg-1'>
+                                    <Row>James</Row>
+                                    <Row>
+                                        <Col style={{paddingLeft: 0, paddingRight: 0}}>
+                                            <BsStarFill/>
+                                            <BsStarFill/>
+                                            <BsStarFill/>
+                                            <BsStarFill/>
+                                            <BsStarHalf/>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        2022-10-20
+                                    </Row>
+                                </Col>
+                                <Col>
+                                    Great, abcxyz<br/>
+                                    Free ship<br/>
+                                    Ok
+                                </Col>
+                                <Col></Col>
+                            </Row>
+
+                            <Row>
+                                <Col className='d-flex justify-content-end'>
+                                    <BsPersonCircle style={{width: '30px', height: '30px'}}/>
+                                </Col>
+                                <Col className='col-lg-1'>
+                                    <Row>James</Row>
+                                    <Row>
+                                        <Col style={{paddingLeft: 0, paddingRight: 0}}>
+                                            <BsStarFill/>
+                                            <BsStarFill/>
+                                            <BsStarFill/>
+                                            <BsStarFill/>
+                                            <BsStarHalf/>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        2022-10-20
+                                    </Row>
+                                </Col>
+                                <Col>
+                                    Great, abcxyz<br/>
+                                    Free ship<br/>
+                                    Ok
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Row>
+                    </Row>}
+                </Row>
+
+                <hr/>
+
+                <Row className="d-flex" style={{paddingBottom: '30px'}}>
+                    <Row className='row-xl-auto' style={{paddingBottom: '20px'}}>
+                        <p className='fs-4 fw-bold' style={{paddingLeft: '35px'}}>YOU MIGHT ALSO LIKE</p>
+                    </Row>
+
+                    <Row style={{paddingBottom: '30px'}}>
+                        <Col className='d-flex justify-content-center'>
+                            <Image src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Eiffel_Tower_Vertical.JPG'
+                                style={{width: '160px', height: '200px', cursor: 'pointer'}}
+                            />
+                        </Col>
+                        <Col className='d-flex justify-content-center'>
+                            <Image src='https://previews.123rf.com/images/rglinsky/rglinsky1201/rglinsky120100188/12336990-vertical-image-orient%C3%A9e-de-la-c%C3%A9l%C3%A8bre-tour-eiffel-%C3%A0-paris-france-.jpg'
+                                style={{width: '160px', height: '200px', cursor: 'pointer'}}
+                            />
+                        </Col>
+                        <Col className='d-flex justify-content-center'>
+                            <Image src='https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmVydGljYWwlMjBsYW5kc2NhcGV8ZW58MHx8MHx8&w=1000&q=80'
+                                style={{width: '160px', height: '200px', cursor: 'pointer'}}
+                            />
+                        </Col>
+                        <Col className='d-flex justify-content-center'>
+                            <Image src='https://upload.wikimedia.org/wikipedia/commons/9/91/F-15_vertical_deploy.jpg'
+                                style={{width: '160px', height: '200px', cursor: 'pointer'}}
+                            />
+                        </Col>
+                        <Col className='d-flex justify-content-center'>
+                            <Image src='https://st2.depositphotos.com/2288675/5430/i/600/depositphotos_54306899-stock-photo-balance-and-harmony-in-nature.jpg'
+                                style={{width: '160px', height: '200px', cursor: 'pointer'}}
+                            />
+                        </Col>
+                    </Row>
+
+                    <Row className='justify-content-center'>
+                        <Button variant='dark' style={{width: '300px', borderRadius: '20px'}}>SEE MORE</Button>
+                    </Row>
+                </Row>
+            </Container>
+
+            <Footer/>
+        </div>
     )
 }
