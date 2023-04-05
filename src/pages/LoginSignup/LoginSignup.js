@@ -1,10 +1,33 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../redux/user/userActions";
+import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import "./LoginSignup.css";
-import { Link } from "react-router-dom";
-
 export default function LoginSignup() {
     const [signIn, setSignIn] = useState(true);
     const [signUp, setSignUp] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const notifyFail = () => toast.error("Unable to log in!");
+
+    const handleSignIn = async (event) => {
+        event.preventDefault();
+    
+        try {
+            const response = await dispatch(loginUser({ username, password }));
+            if (response.payload === true) {
+                navigate('/profile');
+            }
+            else notifyFail();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
 
     return (
         <div className="sign-in-content">
@@ -37,16 +60,16 @@ export default function LoginSignup() {
                     {signIn && <form className="user-form-sign-in">
                         <div className="input-container">
                             <label>USERNAME</label>
-                            <input type="text" name="username" />
+                            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         </div>
 
                         <div className="input-container">
                             <label>PASSWORD</label>
-                            <input type="password" name="password" />
+                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </div>
 
                         <div className="button-container">
-                            <Link to="/"><input type="submit" value="SIGN IN"/></Link>
+                            <Link to="/"><input type="submit" value="SIGN IN" onClick={handleSignIn}/></Link>
                         </div>
 
                         <div className="forgot-password">
@@ -102,6 +125,8 @@ export default function LoginSignup() {
                     <div className="line"></div>
                     <div className="text">Terms & Conditions</div>
                 </div>}
+
+                <ToastContainer />
             </div>
         </div>
     )

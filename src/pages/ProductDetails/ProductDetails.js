@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectProduct } from '../../redux/product/productSelectors';
+import { fetchOneProduct } from '../../redux/product/productActions';
+import { Container, Row, Col, Carousel, Image, Button, Form } from 'react-bootstrap';
+import { BsArrowLeftSquare, BsHeart, BsPersonCircle, BsStarFill, BsStarHalf, BsTruck } from 'react-icons/bs';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import './ProductDetails.css';
-import { Container, Row, Col, Carousel, Image, Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { BsArrowLeftSquare, BsHeart, BsPersonCircle, BsStarFill, BsStarHalf, BsTruck } from 'react-icons/bs';
 
 export default function ProductDetails() {
     const [showDetails, setShowDetails] = useState(true);
     const [showRating, setShowRating] = useState(false);
     const [showComments, setShowComments] = useState(5);
+    const dispatch = useDispatch();
+    const thisProduct = useSelector(selectProduct);
+    const { id } = useParams();
+
+    useEffect(() => {
+        dispatch(fetchOneProduct({ id }));
+    }, [dispatch, id]);
 
     return (
         <div className='vw-100'>
@@ -65,7 +75,7 @@ export default function ProductDetails() {
                         
                         <Col style={{marginLeft: '20px'}}>
                             <Row>
-                                <p className='fs-3 fw-bold'>Ophidia GG Medium Totea</p>
+                                <p className='fs-3 fw-bold'>{thisProduct?.name}</p>
                             </Row>
                             <Row style={{paddingBottom: '15px'}}>
                                 <Col>
@@ -73,7 +83,7 @@ export default function ProductDetails() {
                                 </Col>
                             </Row>
                             <Row>
-                                <Row><p className='fs-4'>$200</p></Row>
+                                <Row><p className='fs-4'>${' '}{thisProduct?.price}</p></Row>
                                 <Row><p className='fs-4'>Color: Black</p></Row>
                             </Row>
                             <Row style={{paddingBottom: '30px'}}>

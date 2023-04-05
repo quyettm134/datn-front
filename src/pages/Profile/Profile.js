@@ -1,20 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUser } from '../../redux/user/userActions';
+import { selectUser, selectUserStatus } from '../../redux/user/userSelectors';
+import { fetchOrderList } from '../../redux/order/orderActions';
+import { selectOrderList, selectOrderStatus } from '../../redux/order/orderSelectors';
 import { Row, Col, Container, Image, Button } from "react-bootstrap";
 import { BsPersonCircle, BsBoxSeam, BsArrowLeftSquare, BsPersonLinesFill, BsFillCreditCardFill, BsHeart, BsGiftFill, BsKey, BsArrowBarLeft, BsQuestionSquare, BsClock } from "react-icons/bs";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import Loading from "../../components/Loading/Loading";
+import OrderCard from "../../components/OrderCard/OrderCard";
 import Logo from "../../assets/images/Logo.png";
 import "./Profile.css";
 export default function Profile() {
     const [pageIndex, setPageIndex] = useState(0);
-
     const [orderIndex, setOrderIndex] = useState(0);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const User = useSelector(selectUser);
+    const OrderList = useSelector(selectOrderList);
+    const UserStatus = useSelector(selectUserStatus);
+    const OrderListStatus = useSelector(selectOrderStatus);
+
+    useEffect(() => {
+        dispatch(fetchUser());
+        dispatch(fetchOrderList());
+    }, [dispatch]);
+
+    const handleSignout = () => {
+        localStorage.removeItem('token');
+        navigate('/signin');
+    };
+
+    if (!User) {
+        return <h1>User not found!</h1>;
+    }
 
     return (
         <div className="vw-100">
             <Header/>
 
             <Container className="profile-content" fluid>
+                {UserStatus === 'pending' ? 
+
+                <Loading />
+                
+                : 
+                
                 <Row className="d-flex justify-content-center">
                     <Col style={{
                         width: '10px'
@@ -27,14 +60,14 @@ export default function Profile() {
                     }}>
                         <Row className="d-flex row-sm-2 gy-5">
                             <Col className="col-sm-6 justify-content-center align-self-center">
-                                <Image className="shadow" src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" style={{
+                                <Image className="shadow" src={User.img} style={{
                                     width: '120px',
                                     height: '120px',
                                 }} roundedCircle/>
                             </Col>
                             <Col className="col-sm-6 align-self-center text-start">
                                 <p className="text fs-2">Hello,</p>
-                                <p className="text fs-3 fw-bold">Thai Dinh Kha</p>
+                                <p className="text fs-3 fw-bold">{User.fullname}</p>
                             </Col>
                         </Row>
 
@@ -160,7 +193,7 @@ export default function Profile() {
                                 }}/>
                             </Col>
                             <Col className="col-sm-6 gx-0 align-self-center text-start">
-                                <p className="text fs-5">Sign out</p>
+                                <p className="text fs-5" onClick={handleSignout}>Sign out</p>
                             </Col>
                         </Row>
 
@@ -194,7 +227,7 @@ export default function Profile() {
                     
                         <Row className="d-flex" style={{ overflow: 'hidden' }}>
                             <Row className="justify-content-center gy-2">
-                                <Image className="shadow" src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" style={{
+                                <Image className="shadow" src={User.img} style={{
                                     width: '200px',
                                     height: '200px',
                                 }} roundedCircle/>
@@ -231,27 +264,27 @@ export default function Profile() {
                             </Col>
 
                             <Col className="text-start">
-                                <Row><p>khathai01</p></Row>
-                                <Row><p>Thai Dinh Kha</p></Row>
+                                <Row><p>{User.username}</p></Row>
+                                <Row><p>{User.fullname}</p></Row>
                                 <Row><p>22</p></Row>
-                                <Row><p>khathai01@gmail.com</p></Row>
-                                <Row><p>0123456789</p></Row>
-                                <Row><p>Male</p></Row>
-                                <Row><p>01/01/2001</p></Row>
-                                <Row><p>Ho Chi Minh City</p></Row>
+                                <Row><p>{User.email}</p></Row>
+                                <Row><p>{User.phonenumber}</p></Row>
+                                <Row><p>{User.gender}</p></Row>
+                                <Row><p>{User.dob}</p></Row>
+                                <Row><p>{User.address[0]}</p></Row>
                             </Col>                            
                         </Row>
 
                         <hr/>
 
-                        <Row className="justify-content-center">
+                        <Row className="justify-content-center" style={{marginBottom: '20px'}}>
                             <Button style={{width: '100px'}} variant="dark">Edit</Button>
                         </Row>
                     </Col> : <></>}
 
                     {pageIndex === 1 ? <Col className="col-md-6 bg-light gy-1" style={{
                         marginTop: '30px',
-                        marginBottom: '30px'
+                        marginBottom: '30px',
                     }}>
                         <Row className="d-flex align-items-center text-start">
                             <Row className="fs-2 fw-bold"><p>My orders</p></Row>
@@ -277,93 +310,25 @@ export default function Profile() {
 
                         <hr/>
 
-                        <Row className="d-flex">
-                            <Col className="col-sm-4 gx-xxl-5">
-                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6da41fa-1be4-4ce5-b89c-22be4f1f02d4/air-force-1-07-shoes-WrLlWX.png" style={{
-                                    width: '150px',
-                                    height: '150px',
-                                }}/>
-                            </Col>
+                        <div style={{overflowY: 'scroll', overflowX: 'hidden', maxHeight: '690px'}}>
+                            {OrderListStatus === 'pending' ? 
+                            
+                                <Loading />
 
-                            <Col className="col-sm-4 justify-content-start fs-5">
-                                <Row className="gy-0">Ophidia GG medium totea</Row>
-                                <Row className="gy-0">Variation: Brown</Row>
-                                <Row className="gy-0">Size: L</Row>
-                            </Col>
-
-                            <Col xs={1}>
-                                <div className="vr" style={{
-                                    height: '130px'
-                                }}></div>
-                            </Col>
-
-                            <Col className="col-sm-3 fs-5">
-                                <Row className="gy-0 d-inline-block" style={{
-                                    backgroundColor: '#F6F2F2'
-                                }}>QTY: x1</Row>
-                                <Row className="gy-0">Price: $2,155</Row>
-                            </Col>
-                        </Row>
-
-                        <hr/>
-
-                        <Row className="d-flex">
-                            <Col className="col-sm-4 gx-xxl-5">
-                                <Image className="shadow justify-content-start" src="https://media.istockphoto.com/id/1061837374/photo/diamond-pendant-isolated-on-white-background-n.jpg?s=612x612&w=0&k=20&c=i24LMIVt5LrQ982SApfbqlKIiohzIRjTcaGjcd1Va3g=" style={{
-                                    width: '150px',
-                                    height: '150px',
-                                }}/>
-                            </Col>
-
-                            <Col className="col-sm-4 justify-content-start fs-5">
-                                <Row className="gy-0">GG Canvas bucket hat</Row>
-                                <Row className="gy-0">Variation: Brown</Row>
-                                <Row className="gy-0">Size: L</Row>
-                            </Col>
-
-                            <Col xs={1}>
-                                <div className="vr" style={{
-                                    height: '130px'
-                                }}></div>
-                            </Col>
-
-                            <Col className="col-sm-3 fs-5">
-                                <Row className="gy-0 d-inline-block" style={{
-                                    backgroundColor: '#F6F2F2'
-                                }}>QTY: x1</Row>
-                                <Row className="gy-0">Price: $780</Row>
-                            </Col>
-                        </Row>
-
-                        <hr/>
-
-                        <Row className="d-flex">
-                            <Col className="col-sm-4 gx-xxl-5">
-                                <Image className="shadow justify-content-start" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.3/w_467,c_limit/c8041aad-dac0-42d2-b016-9b27bb6a365e/dri-fit-tiger-woods-legacy91-golf-hat-fsHzBn.png" style={{
-                                    width: '150px',
-                                    height: '150px',
-                                }}/>
-                            </Col>
-
-                            <Col className="col-sm-4 justify-content-start fs-5">
-                                <Row className="gy-0">GG Marmont thin belt</Row>
-                                <Row className="gy-0">Variation: Brown</Row>
-                                <Row className="gy-0">Size: L</Row>
-                            </Col>
-
-                            <Col xs={1}>
-                                <div className="vr" style={{
-                                    height: '130px'
-                                }}></div>
-                            </Col>
-
-                            <Col className="col-sm-3 fs-5">
-                                <Row className="gy-0 d-inline-block" style={{
-                                    backgroundColor: '#F6F2F2'
-                                }}>QTY: x1</Row>
-                                <Row className="gy-0">Price: $640</Row>
-                            </Col>
-                        </Row>
+                                :
+                                OrderList?.map((order, index) => (
+                                    <div key={index}>
+                                        <OrderCard 
+                                            id={order._id} 
+                                            order_day={order.order_day} 
+                                            total={order.total} 
+                                            status={order.status} 
+                                            itemNumber={order.product_list.length}
+                                        />
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </Col> : <></>}
 
                     {pageIndex === 2 ? <Col className="col-md-6 bg-light gy-1" style={{
@@ -1070,7 +1035,7 @@ export default function Profile() {
                     </Col> : <></>}
 
                     <Col xs={1}></Col>
-                </Row>
+                </Row>}
             </Container>
 
             <Footer/>

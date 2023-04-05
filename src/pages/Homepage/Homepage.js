@@ -148,12 +148,12 @@ export default function Homepage() {
                             <p className="fs-1 fw-bolder">TRENDING</p>
                         </Col>
                         <Col className="col-lg-auto align-self-center">
-                            <p className="fs-4 fw-bold" style={{cursor: 'pointer'}}>See all <BsArrowRight /></p>
+                            <Link style={{ textDecoration: 'none' }} to="/product_list"><p className="fs-4 fw-bold" style={{cursor: 'pointer', color: 'black'}}>See all <BsArrowRight /></p></Link>
                         </Col>
                     </Row>
                     <Row className="row-xl-auto" style={{paddingBottom: '20px'}}>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -176,7 +176,7 @@ export default function Homepage() {
                             </Link>
                         </Col>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -199,7 +199,7 @@ export default function Homepage() {
                             </Link>
                         </Col>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -222,7 +222,7 @@ export default function Homepage() {
                             </Link>
                         </Col>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -253,12 +253,12 @@ export default function Homepage() {
                             <p className="fs-1 fw-bolder">BEST SELLERS</p>
                         </Col>
                         <Col className="col-md-auto align-self-center">
-                            <p className="fs-4 fw-bold" style={{cursor: 'pointer'}}>See all <BsArrowRight /></p>
+                            <Link style={{ textDecoration: 'none' }} to="/product_list"><p className="fs-4 fw-bold" style={{cursor: 'pointer', color: 'black'}}>See all <BsArrowRight /></p></Link>
                         </Col>
                     </Row>
                     <Row className="row-xl-auto" style={{paddingBottom: '20px'}}>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -281,7 +281,7 @@ export default function Homepage() {
                             </Link>
                         </Col>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -304,7 +304,7 @@ export default function Homepage() {
                             </Link>
                         </Col>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>
@@ -327,7 +327,7 @@ export default function Homepage() {
                             </Link>
                         </Col>
                         <Col className="col-md-auto">
-                            <Link to="/productdetails" style={{textDecoration: 'none', color: '#000000'}}>
+                            <Link to="/product_details" style={{textDecoration: 'none', color: '#000000'}}>
                                 <Card style={{backgroundColor: '#ffffff'}}>
                                     <Card.Img style={{width: '350px', height: '267px'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
                                     <Card.Body>

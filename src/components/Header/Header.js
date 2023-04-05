@@ -1,10 +1,16 @@
 import React from "react";
-import "./Header.css";
 import { Link } from "react-router-dom";
-import { Row, Col, Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/user/userSelectors";
+import { selectCart } from "../../redux/cart/cartSelectors";
+import { Row, Col, Container, OverlayTrigger, Badge } from "react-bootstrap";
 import { BsCart3, BsPerson, BsPinMap, BsSearch, BsTelephone } from "react-icons/bs";
+import "./Header.css";
 
 export default function Header() {
+    const User = useSelector(selectUser);
+    const Cart = useSelector(selectCart);
+
     return (
         <Container fluid className="header-content vw-auto">
             <Row className="d-flex" style={{
@@ -18,16 +24,45 @@ export default function Header() {
                     cursor: "pointer",
                     marginLeft: "15px"
                 }}><BsTelephone />{' '}+84 987654321</Col>
+                {User ? (
+                <Col className="col-md-auto"><BsPerson />{' '}{' '}<Link to="/profile" style={{
+                    color: "#ffffff",
+                    textDecoration: "none",
+                    marginRight: "15px",
+                    cursor: 'pointer'
+                    }}>{User.fullname}</Link></Col>
+                ) : (
                 <Col className="col-md-auto"><BsPerson />{' '}<Link to="/signin" style={{
-                    color: "#ffffff", 
+                    color: "#ffffff",
                     textDecoration: "none",
-                    marginRight: "15px"
-                }}>Sign in</Link></Col>
-                <Col className="col-md-auto"><BsCart3 />{' '}<Link to="/cart" style={{
-                    color: "#ffffff", 
-                    textDecoration: "none",
-                    marginRight: "15px"
-                }}>Cart</Link></Col>
+                    marginRight: "15px",
+                    cursor: 'pointer'
+                    }}>Sign in</Link></Col>
+                )}
+                <Col className="col-md-auto">
+                    <BsCart3 />
+                    {' '}
+                    {/* <OverlayTrigger
+                        placement="bottom"
+                        overlay={
+                            <Container style={{ backgroundColor: 'white', width: '500px', height: '1000px', position: 'fixed', zIndex: 9999 }}>
+                                <Col>
+                                    <Row>Your items</Row>
+                                </Col>
+                            </Container>
+                        }
+                    > */}
+                        <Link to="/cart" style={{
+                            color: "#ffffff", 
+                            textDecoration: "none",
+                            marginRight: "15px",
+                            cursor: 'pointer'
+                        }}>
+                            Cart{' '}
+                            <Badge bg="danger">{Cart.length}</Badge>
+                        </Link>
+                    {/* </OverlayTrigger> */}
+                </Col>
                 <Col className="col-md-auto" style={{
                     marginRight: "15px",
                     paddingRight: "25px"
