@@ -10,7 +10,7 @@ export default function Homepage() {
         <div className="vw-100">
             <Header />
 
-            <Container fluid className="homepage-content vw-auto">
+            <Container fluid className="homepage-content vw-auto" style={{marginTop: '50px'}}>
                 <Row className="d-flex justify-content-center align-items-stretch" style={{paddingBottom: '30px'}}> {/* Slider */}
                     <Carousel style={{
                         display: 'block',

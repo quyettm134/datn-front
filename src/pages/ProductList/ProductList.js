@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/product/productActions";
-import { selectProductList } from "../../redux/product/productSelectors";
+import { selectProductList, selectProductStatus } from "../../redux/product/productSelectors";
 import { Container, Row, Col, Button, Form, InputGroup } from 'react-bootstrap';
 import { BsCaretRight } from "react-icons/bs";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import Loading from "../../components/Loading/Loading";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./ProductList.css";
 
@@ -16,6 +17,7 @@ export default function ProductList() {
     const [date, setDate] = useState('');
     const dispatch = useDispatch();
     const productList = useSelector(selectProductList);
+    const productStatus = useSelector(selectProductStatus);
 
     useEffect(() => {
         dispatch(fetchProducts());
@@ -34,7 +36,7 @@ export default function ProductList() {
 
             <Container fluid className="product-list-content vw-auto">
                 <Row className="d-flex justify-content-center my-5">
-                    <Form style={{width: '85rem'}}>
+                    <Form style={{width: '85rem', marginTop: '50px'}}>
                         <InputGroup className="mb-3">
                             <Form.Control 
                                 style={{
@@ -394,17 +396,25 @@ export default function ProductList() {
                     </Col>
 
                     <Col>
-                        {productList &&
-                            productList.reduce((rows, product, i) => {
+                        {productStatus === 'pending' ? (
+                            
+                            <div style={{ position: 'relative', height: '100%' }}>
+                                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                                    <Loading />
+                                </div>
+                            </div>
+                            
+                            ) :
+                            (productList?.reduce((rows, product, i) => {
                                 if (i >= currentPage * productsPerPage && i < (currentPage + 1) * productsPerPage) {
                                     if (i % 3 === 0) rows.push([]);
                                     rows[rows.length - 1].push(
-                                        <Col key={i} className="col-sm-auto mb-4">
+                                        <Col key={i} className="col-sm-auto mb-2">
                                             <ProductCard 
                                                 id={product._id}
-                                                name={product.name}
-                                                price={product.price}
-                                                color={product.color}
+                                                name={product.prod_name}
+                                                price={200}
+                                                color={product.colour_group_name}
                                             />
                                         </Col>
                                     );
@@ -416,28 +426,31 @@ export default function ProductList() {
                                         {row}
                                     </Row>
                                 )
-                            })
+                            }))
                         }
-                        <div className="d-flex justify-content-center">
-                            <ReactPaginate
-                                pageCount={Math.ceil(productList?.length / productsPerPage)}
-                                pageRangeDisplayed={2}
-                                marginPagesDisplayed={1}
-                                onPageChange={handlePageChange}
-                                containerClassName="pagination"
-                                activeClassName="active"
-                                pageClassName="page-item"
-                                pageLinkClassName="page-link"
-                                previousClassName="page-item"
-                                previousLinkClassName="page-link"
-                                nextClassName="page-item"
-                                nextLinkClassName="page-link"
-                                nextLabel="Next >"
-                                previousLabel="< Previous"
-                                breakLabel="..."
-                                renderOnZeroPageCount={null}
-                            />
-                        </div>
+                        
+                        {productList &&
+                            <div className="d-flex justify-content-center">
+                                <ReactPaginate
+                                    pageCount={Math.ceil(productList?.length / productsPerPage)}
+                                    pageRangeDisplayed={2}
+                                    marginPagesDisplayed={1}
+                                    onPageChange={handlePageChange}
+                                    containerClassName="pagination"
+                                    activeClassName="active"
+                                    pageClassName="page-item"
+                                    pageLinkClassName="page-link"
+                                    previousClassName="page-item"
+                                    previousLinkClassName="page-link"
+                                    nextClassName="page-item"
+                                    nextLinkClassName="page-link"
+                                    nextLabel="Next >"
+                                    previousLabel="< Previous"
+                                    breakLabel="..."
+                                    renderOnZeroPageCount={null}
+                                />
+                            </div>
+                        }
                     </Col>
                 </Row>
             </Container>

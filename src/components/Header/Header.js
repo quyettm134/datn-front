@@ -1,100 +1,253 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateQuantity, removeItem } from "../../redux/cart/cartSlice";
 import { selectUser } from "../../redux/user/userSelectors";
 import { selectCart } from "../../redux/cart/cartSelectors";
-import { Row, Col, Container, OverlayTrigger, Badge } from "react-bootstrap";
-import { BsCart3, BsPerson, BsPinMap, BsSearch, BsTelephone } from "react-icons/bs";
+import { Row, Col, Container, Badge, Image, Form, Button } from "react-bootstrap";
+import { BsCart3, BsPerson, BsSearch } from "react-icons/bs";
 import "./Header.css";
 
 export default function Header() {
+    const dispatch = useDispatch();
     const User = useSelector(selectUser);
     const Cart = useSelector(selectCart);
+    const [isHover, setIsHover] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHover(true);
+    }
+
+    const handleMouseLeave = () => {
+        setIsHover(false);
+    }
+
+    const handleQuantityChange = (id, quantity) => {
+        dispatch(updateQuantity({ itemId: id, quantity: quantity }));
+    }
+
+    const handleRemoveItem = (id) => {
+        dispatch(removeItem(id));
+    }
 
     return (
         <Container fluid className="header-content vw-auto">
             <Row className="d-flex" style={{
                 color: "#ffffff",
                 backgroundColor: "#000000",
-                height: "35px",
-                alignItems: "center"
+                height: "60px",
+                alignItems: "center",
             }}>
-                <Col className="col-md-auto" style={{cursor: "pointer"}}><BsPinMap />{' '}Ho Chi Minh city - Vietnam</Col>
-                <Col style={{
-                    cursor: "pointer",
-                    marginLeft: "15px"
-                }}><BsTelephone />{' '}+84 987654321</Col>
-                {User ? (
-                <Col className="col-md-auto"><BsPerson />{' '}{' '}<Link to="/profile" style={{
-                    color: "#ffffff",
-                    textDecoration: "none",
-                    marginRight: "15px",
-                    cursor: 'pointer'
-                    }}>{User.fullname}</Link></Col>
-                ) : (
-                <Col className="col-md-auto"><BsPerson />{' '}<Link to="/signin" style={{
-                    color: "#ffffff",
-                    textDecoration: "none",
-                    marginRight: "15px",
-                    cursor: 'pointer'
-                    }}>Sign in</Link></Col>
-                )}
-                <Col className="col-md-auto">
-                    <BsCart3 />
-                    {' '}
-                    {/* <OverlayTrigger
-                        placement="bottom"
-                        overlay={
-                            <Container style={{ backgroundColor: 'white', width: '500px', height: '1000px', position: 'fixed', zIndex: 9999 }}>
-                                <Col>
-                                    <Row>Your items</Row>
-                                </Col>
-                            </Container>
-                        }
-                    > */}
-                        <Link to="/cart" style={{
+                
+                <Col className="col-sm-auto brand-name-header d-flex align-items-center justify-content-center" style={{
+                        fontSize: "50px",
+                        marginLeft: "10px",
+                    }}>
+                    <Link to="/" 
+                        style={{
                             color: "#ffffff", 
                             textDecoration: "none",
-                            marginRight: "15px",
-                            cursor: 'pointer'
-                        }}>
-                            Cart{' '}
-                            <Badge bg="danger">{Cart.length}</Badge>
-                        </Link>
-                    {/* </OverlayTrigger> */}
+                    }}>
+                        KQQ
+                    </Link>
                 </Col>
-                <Col className="col-md-auto" style={{
-                    marginRight: "15px",
-                    paddingRight: "25px"
-                }}><BsSearch style={{cursor: "pointer"}}/></Col>
+
+                <Col className="d-flex" style={{ marginLeft: '20px' }}>
+                    <Row style={{ fontSize: '18px' }}>
+                        <Col className="col-sm-auto nav-bar">Home</Col>
+                        <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>Categories</Col>
+                        <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>About</Col>
+                        <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>Payment</Col>
+                        <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>Contact us</Col>
+                    </Row>
+                </Col>
+                
+                {User ? (
+
+                <Col className="col-md-auto align-self-center nav-bar" >
+                    <BsPerson />{' '}{' '}
+                    <Link to="/profile" style={{
+                        color: "#ffffff",
+                        textDecoration: "none",
+                        marginRight: "15px",
+                        cursor: 'pointer',
+                        fontSize: '18px'
+                    }}>
+                        {User.fullname}
+                    </Link>
+                </Col>
+
+                ) : (
+
+                <Col className="col-md-auto align-self-center nav-bar" style={{fontSize: '18px'}}>
+                    <BsPerson />{' '}
+                    <Link to="/signin" style={{
+                        color: "#ffffff",
+                        textDecoration: "none",
+                        marginRight: "15px",
+                        cursor: 'pointer'
+                    }}>
+                        Sign in
+                    </Link>
+                </Col>
+                )}
+
+                <Col 
+                    className="col-md-auto align-self-center nav-bar" 
+                    style={{fontSize: '18px'}}
+                    onMouseEnter={handleMouseEnter}
+                >
+                    <BsCart3 />
+                    {' '}
+                    <Link to="/cart" style={{
+                        color: "#ffffff", 
+                        textDecoration: "none",
+                        marginRight: "15px",
+                        cursor: 'pointer'
+                    }}>
+                        Cart{' '}
+                        <Badge bg="danger">{Cart.length}</Badge>
+                    </Link>
+                </Col>
+
+                <Col className="col-md-auto align-self-center nav-bar" 
+                    style={{
+                        marginRight: "15px",
+                        paddingRight: "25px",
+                        fontSize: '18px'
+                    }}
+                >
+                    <BsSearch style={{cursor: "pointer"}}/>
+                </Col>
             </Row>
 
-            <Row className="d-flex" style={{
-                color: "#ffffff",
-                backgroundColor: "#1C1D20",
-                height: "140px",
-                alignItems: "center"
-            }}>
-                <Row>
-                    <Col className="text-center brand-name-header" style={{
-                        fontSize: "50px"
-                    }}><Link to="/" style={{
-                        color: "#ffffff", 
-                        textDecoration: "none"
-                    }}>KQQ</Link></Col>
-                </Row>
-                <Row style={{marginLeft: "10px"}}>
-                    <Col className="text-center fs-5 header-link"><Link to="/" style={{textDecoration:'none', color: 'white'}}><p>What's new</p></Link></Col>
-                    <Col className="text-center fs-5 header-link"><Link to="/men" style={{textDecoration:'none', color: 'white'}}><p>Men</p></Link></Col>
-                    <Col className="text-center fs-5 header-link"><Link to="/women" style={{textDecoration:'none', color: 'white'}}><p>Women</p></Link></Col>
-                    <Col className="text-center fs-5 header-link"><p>Children</p></Col>
-                    <Col className="text-center fs-5 header-link"><p>Handbags</p></Col>
-                    <Col className="text-center fs-5 header-link"><p>Rings</p></Col>
-                    <Col className="text-center fs-5 header-link"><p>Necklaces</p></Col>
-                    <Col className="text-center fs-5 header-link"><p>Watches</p></Col>
-                    <Col className="text-center fs-5 header-link"><p>Others</p></Col>
-                </Row>
-            </Row>
+            {isHover && 
+                <Container
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ 
+                        backgroundColor: 'white',
+                        width: '500px', 
+                        height: '600px', 
+                        position: 'fixed', 
+                        zIndex: 9999,
+                        right: 20,
+                        boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)',
+                        overflowY: 'auto',
+                        borderRadius: '10px',
+                    }}
+                >
+                    <Col>
+                        {Cart.length === 0 ? 
+                            (
+                                <div className="card-body cart" style={{marginTop: '200px'}}>
+                                    <div className="col-sm-12 empty-cart-cls">
+                                        <div className="text-center">
+                                            <img src="https://i.imgur.com/dCdflKN.png" alt="" width="130" height="130" className="img-fluid mb-4 mr-3"/>
+                                            <h3><strong>Your Cart is Empty</strong></h3>
+                                            <h4>Add something to make me happy</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+
+                            :
+
+                            Cart.map((item, index) => (
+                                <div key={index}>
+                                    <Row 
+                                        className='row-lg-5 d-flex justify-content-center align-items-center' 
+                                        style={{
+                                            backgroundColor: 'white', 
+                                            marginLeft: '20px', 
+                                            marginTop: '20px', 
+                                            marginBottom: '20px', 
+                                            borderRadius: '10px',
+                                            boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)',
+                                            maxHeight: '300px',
+                                            maxWidth: '450px'
+                                        }}>
+                                        <Col>
+                                            <Image src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Eiffel_Tower_Vertical.JPG' style={{width: '160px', height: '160px', cursor: 'pointer'}}/>
+                                        </Col>
+    
+                                        <Col className='col-lg-5'>
+                                            <Row>
+                                                <p className='fs-4 fw-bold'>{item.name}</p>
+                                            </Row>
+                                            
+                                            <Row>
+                                                <p className='fw-bold'>Variation: {item.color}</p>
+                                            </Row>
+    
+                                            <Row>
+                                                <p className='fw-bold'>Size: L</p>
+                                            </Row>
+    
+                                            <Row>
+                                                <Col className='col-sm-auto'>
+                                                    <p style={{fontSize: '16px', cursor: 'pointer'}} 
+                                                        onClick={() => handleRemoveItem(item.id)}
+                                                    >Remove</p>
+                                                </Col>
+                                            </Row>
+                                        </Col>
+    
+                                        <Col xs={1}></Col>
+    
+                                        <Col>
+                                            <Row style={{marginTop: '20px', marginRight: '20px'}}>
+                                                <Col className="col-sm-auto">
+                                                    Quantity:
+                                                </Col>
+
+                                                <Col>
+                                                    <div className="input-group">
+                                                        <Button 
+                                                            className="btn btn-secondary" 
+                                                            type="button" 
+                                                            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>
+                                                                -
+                                                        </Button>
+                                                        <Form.Control 
+                                                            disabled 
+                                                            type="number" 
+                                                            value={item.quantity} 
+                                                            style={{
+                                                                maxWidth: '50px'
+                                                            }}
+                                                            className="text-center"
+                                                        />
+                                                        <Button 
+                                                            className="btn btn-secondary" 
+                                                            type="button" 
+                                                            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
+                                                                +
+                                                        </Button>
+                                                    </div>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <div style={{ display: "flex", alignItems: "center" }}>
+                                                    <span>Price: </span>
+                                                    <p 
+                                                        className="fw-bold" 
+                                                        style={{ 
+                                                            marginLeft: "10px", 
+                                                            marginTop: "15px" 
+                                                        }}>
+                                                            ${item.price * item.quantity}   
+                                                    </p>
+                                                </div>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            ))
+                        }
+                    </Col>
+                </Container>
+            }
         </Container>
     )
 }

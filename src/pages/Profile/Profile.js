@@ -41,7 +41,7 @@ export default function Profile() {
         <div className="vw-100">
             <Header/>
 
-            <Container className="profile-content" fluid>
+            <Container className="profile-content" fluid style={{marginTop: '50px'}}>
                 {UserStatus === 'pending' ? 
 
                 <Loading />

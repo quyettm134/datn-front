@@ -113,11 +113,11 @@ export default function OrderDetails() {
 
                                     <Col className='col-lg-5'>
                                         <Row>
-                                            <p className='fs-1 fw-bold'>{item.product.name}</p>
+                                            <p className='fs-1 fw-bold'>{item.product?.name}</p>
                                         </Row>
                                         
                                         <Row>
-                                            <p className='fw-bold' style={{color: 'gray'}}>Variation: {item.product.color}</p>
+                                            <p className='fw-bold' style={{color: 'gray'}}>Variation: {item.product?.color}</p>
                                         </Row>
 
                                         <Row>
@@ -150,7 +150,7 @@ export default function OrderDetails() {
                                                         marginLeft: "10px", 
                                                         marginTop: "15px" 
                                                     }}>
-                                                        ${' '}{item.product.price * item.quantity}   
+                                                        ${' '}{item.product?.price * item.quantity}   
                                                 </p>
                                             </div>
                                         </Row>
