@@ -413,7 +413,7 @@ export default function ProductList() {
                                             <ProductCard 
                                                 id={product._id}
                                                 name={product.prod_name}
-                                                price={200}
+                                                price={product.price}
                                                 color={product.colour_group_name}
                                             />
                                         </Col>

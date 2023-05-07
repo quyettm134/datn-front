@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 export const loginUser = createAsyncThunk('user/loginUser', async ({ username, password }) => {
     const response = await fetch('http://localhost:8080/users/login', {
         method: 'POST',
