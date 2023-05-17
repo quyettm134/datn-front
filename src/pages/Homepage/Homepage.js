@@ -71,7 +71,7 @@ export default function Homepage() {
                                         marginTop: '20px',
                                         marginBottom: '20px',
                                     }}>
-                                        <Image src="https://cdn.cliqueinc.com/posts/301582/best-investment-designer-handbags-2022-301582-1659651701540-image.700x0c.jpg"
+                                        <Image src={require(`../../assets/images/products/0126589006.jpg`)}
                                             style={{
                                                 width: "57%",
                                                 height: "57%",

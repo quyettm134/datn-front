@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/product/productActions";
@@ -12,12 +12,19 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import "./ProductList.css";
 
 export default function ProductList() {
-    const [category, setCategory] = useState('');
-    const [rating, setRating] = useState('');
-    const [date, setDate] = useState('');
     const dispatch = useDispatch();
     const productList = useSelector(selectProductList);
     const productStatus = useSelector(selectProductStatus);
+
+    const [searchName, setSearchName] = useState('');
+    const [category, setCategory] = useState('');
+    const [rating, setRating] = useState('');
+    const [date, setDate] = useState('');
+    const [lowPrice, setLowPrice] = useState(0);
+    const [highPrice, setHighPrice] = useState(9999);
+
+    const lowPriceRef = useRef(null);
+    const highPriceRef = useRef(null);
 
     useEffect(() => {
         dispatch(fetchProducts());
@@ -28,7 +35,23 @@ export default function ProductList() {
 
     const handlePageChange = ({ selected }) => {
         setCurrentPage(selected);
-    };   
+    };
+
+    const filteredProductListByName = ((searchName === '') ? productList : 
+                                productList?.filter(product => 
+                                    product.prod_name.toLowerCase().includes(searchName.toLowerCase())
+                                ));
+
+    const filteredProductListByCategory = ((category === '') ? filteredProductListByName : 
+                                filteredProductListByName?.filter(product => 
+                                    product.index_group_name === category
+                                ));
+
+    const filteredProductListByPrice = ((lowPrice === 0 && highPrice === 0) ? filteredProductListByCategory :
+                                filteredProductListByCategory?.filter(product => 
+                                    product.price >= lowPrice &&
+                                    product.price <= highPrice
+                                ));
 
     return (
         <div className="vw-100">
@@ -44,7 +67,9 @@ export default function ProductList() {
                                     boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)'
                                 }} 
                                 placeholder="Search something quick here..." 
-                                aria-label="Search" 
+                                aria-label="Search"
+                                value={searchName}
+                                onChange={(e) => setSearchName(e.target.value)}
                             />
                             <Button 
                                 style={{
@@ -54,7 +79,7 @@ export default function ProductList() {
                                 }} 
                                 variant="dark" 
                                 className="btn-dark" 
-                                >
+                            >
                                     Search
                                 </Button>
                         </InputGroup>
@@ -75,150 +100,99 @@ export default function ProductList() {
                         }}>
                         <Row>
                             <Form>
-                            <Col className="mt-2">
-                                <p style={{fontWeight: 'bold'}}>Filters</p>
+                                <Col className="mt-2">
+                                    <p style={{fontWeight: 'bold'}}>Filters</p>
 
-                                <hr style={{width: '20rem'}}/>
+                                    <hr style={{width: '20rem'}}/>
 
-                                <p style={{fontWeight: 'bold'}}>All categories</p>
+                                    <p style={{fontWeight: 'bold'}}>All categories</p>
 
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-end" 
-                                    onClick={() => setCategory(0)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 0 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col>
-                                        <p className="mb-1">Men</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end" style={{opacity: 0.5}}>
-                                        <p className="mb-1">100</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(1)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 1 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col>
-                                        <p className="mb-1">Women</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>130</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(2)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 2 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col className="col-sm-auto">
-                                        <p className="mb-1">Children</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>92</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(3)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 3 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col className="col-sm-auto">
-                                        <p className="mb-1">Handbags</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>184</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(4)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 4 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col className="col-sm-auto">
-                                        <p className="mb-1">Rings</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>57</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(5)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 5 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col className="col-sm-auto">
-                                        <p className="mb-1">Necklaces</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>143</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(6)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 6 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col className="col-sm-auto">
-                                        <p className="mb-1">Watches</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>191</p>
-                                    </Col>
-                                </Row>
-                                <Row 
-                                    className="d-flex flex-row align-items-center justify-content-between" 
-                                    onClick={() => setCategory(7)}
-                                >
-                                    <Col className="col-sm-auto">
-                                        {category === 7 ? 
-                                            <Form.Check type="radio" className="mb-1" checked/> : 
-                                            <Form.Check type="radio" className="mb-1"/>
-                                        }
-                                    </Col>
-                                    <Col className="col-sm-auto">
-                                        <p className="mb-1">Others</p>
-                                    </Col>
-                                    <Col className="d-flex justify-content-end">
-                                        <p className="mb-1" style={{opacity: 0.5}}>238</p>
-                                    </Col>
-                                </Row>
-                            </Col>
+                                    <Row 
+                                        className="d-flex flex-row align-items-center justify-content-end" 
+                                        onClick={() => setCategory("Menswear")}
+                                    >
+                                        <Col className="col-sm-auto">
+                                            {category === "Menswear" ? 
+                                                <Form.Check type="radio" className="mb-1" checked/> : 
+                                                <Form.Check type="radio" className="mb-1"/>
+                                            }
+                                        </Col>
+                                        <Col>
+                                            <p className="mb-1">Menswear</p>
+                                        </Col>
+                                        <Col className="d-flex justify-content-end" style={{opacity: 0.5}}>
+                                            <p className="mb-1">155</p>
+                                        </Col>
+                                    </Row>
+                                    <Row 
+                                        className="d-flex flex-row align-items-center justify-content-between" 
+                                        onClick={() => setCategory("Ladieswear")}
+                                    >
+                                        <Col className="col-sm-auto">
+                                            {category === "Ladieswear" ? 
+                                                <Form.Check type="radio" className="mb-1" checked/> : 
+                                                <Form.Check type="radio" className="mb-1"/>
+                                            }
+                                        </Col>
+                                        <Col>
+                                            <p className="mb-1">Ladieswear</p>
+                                        </Col>
+                                        <Col className="d-flex justify-content-end">
+                                            <p className="mb-1" style={{opacity: 0.5}}>556</p>
+                                        </Col>
+                                    </Row>
+                                    <Row 
+                                        className="d-flex flex-row align-items-center justify-content-between" 
+                                        onClick={() => setCategory("Divided")}
+                                    >
+                                        <Col className="col-sm-auto">
+                                            {category === "Divided" ? 
+                                                <Form.Check type="radio" className="mb-1" checked/> : 
+                                                <Form.Check type="radio" className="mb-1"/>
+                                            }
+                                        </Col>
+                                        <Col className="col-sm-auto">
+                                            <p className="mb-1">Divided</p>
+                                        </Col>
+                                        <Col className="d-flex justify-content-end">
+                                            <p className="mb-1" style={{opacity: 0.5}}>162</p>
+                                        </Col>
+                                    </Row>
+                                    <Row 
+                                        className="d-flex flex-row align-items-center justify-content-between" 
+                                        onClick={() => setCategory("Sport")}
+                                    >
+                                        <Col className="col-sm-auto">
+                                            {category === "Sport" ? 
+                                                <Form.Check type="radio" className="mb-1" checked/> : 
+                                                <Form.Check type="radio" className="mb-1"/>
+                                            }
+                                        </Col>
+                                        <Col className="col-sm-auto">
+                                            <p className="mb-1">Sport</p>
+                                        </Col>
+                                        <Col className="d-flex justify-content-end">
+                                            <p className="mb-1" style={{opacity: 0.5}}>43</p>
+                                        </Col>
+                                    </Row>
+                                    <Row 
+                                        className="d-flex flex-row align-items-center justify-content-between" 
+                                        onClick={() => setCategory("Baby/Children")}
+                                    >
+                                        <Col className="col-sm-auto">
+                                            {category === "Baby/Children" ? 
+                                                <Form.Check type="radio" className="mb-1" checked/> : 
+                                                <Form.Check type="radio" className="mb-1"/>
+                                            }
+                                        </Col>
+                                        <Col className="col-sm-auto">
+                                            <p className="mb-1">Baby/Children</p>
+                                        </Col>
+                                        <Col className="d-flex justify-content-end">
+                                            <p className="mb-1" style={{opacity: 0.5}}>366</p>
+                                        </Col>
+                                    </Row>
+                                </Col>
                             </Form>
                         </Row>
 
@@ -313,14 +287,24 @@ export default function ProductList() {
 
                                 <Row className="d-flex flex-row justify-content-between">
                                     <Col>
-                                        <Form.Control pattern="[0-9]+" placeholder="From $" style={{width: '100px'}}/>
+                                        <Form.Control pattern="[0-9]+" placeholder="From $" style={{width: '100px'}} ref={lowPriceRef}/>
                                     </Col>
                                     -
                                     <Col>
-                                        <Form.Control pattern="[0-9]+" placeholder="To $" style={{width: '100px'}}/>
+                                        <Form.Control pattern="[0-9]+" placeholder="To $" style={{width: '100px'}} ref={highPriceRef}/>
                                     </Col>
                                     <Col>
-                                        <Button variant="light" style={{border: '1px solid rgba(128, 128, 128, 0.5)'}}><BsCaretRight style={{color: 'rgba(128, 128, 128, 0.5)'}}/></Button>
+                                        <Button 
+                                            variant="light" 
+                                            style={{border: '1px solid rgba(128, 128, 128, 0.5)'}}
+                                            onClick={() => {
+                                                const newLowPrice = lowPriceRef.current.value;
+                                                const newHighPrice = highPriceRef.current.value;
+                                                setLowPrice(newLowPrice);
+                                                setHighPrice(newHighPrice);
+                                            }}
+                                        >
+                                                <BsCaretRight style={{color: 'rgba(128, 128, 128, 0.5)'}}/></Button>
                                     </Col>
                                 </Row>
                             </Col>
@@ -398,14 +382,20 @@ export default function ProductList() {
                     <Col>
                         {productStatus === 'pending' ? (
                             
-                            <div style={{ position: 'relative', height: '100%' }}>
-                                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                            <Row style={{ position: 'relative', height: '100%' }}>
+                                <div style={{ 
+                                    position: 'absolute', 
+                                    top: '50%', left: '50%', 
+                                    transform: 'translate(-50%, -50%)',
+                                    marginLeft: '550px',
+                                    marginTop: '450px'
+                                }}>
                                     <Loading />
                                 </div>
-                            </div>
+                            </Row>
                             
                             ) :
-                            (productList?.reduce((rows, product, i) => {
+                            (filteredProductListByPrice?.reduce((rows, product, i) => {
                                 if (i >= currentPage * productsPerPage && i < (currentPage + 1) * productsPerPage) {
                                     if (i % 3 === 0) rows.push([]);
                                     rows[rows.length - 1].push(
@@ -415,6 +405,7 @@ export default function ProductList() {
                                                 name={product.prod_name}
                                                 price={product.price}
                                                 color={product.colour_group_name}
+                                                article_id={product.article_id}
                                             />
                                         </Col>
                                     );
@@ -432,7 +423,7 @@ export default function ProductList() {
                         {productList &&
                             <div className="d-flex justify-content-center">
                                 <ReactPaginate
-                                    pageCount={Math.ceil(productList?.length / productsPerPage)}
+                                    pageCount={Math.ceil(filteredProductListByPrice?.length / productsPerPage)}
                                     pageRangeDisplayed={2}
                                     marginPagesDisplayed={1}
                                     onPageChange={handlePageChange}

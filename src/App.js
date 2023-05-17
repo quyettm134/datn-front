@@ -8,6 +8,7 @@ import ProductList from './pages/ProductList/ProductList';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import OrderDetails from './pages/OrderDetails/OrderDetails';
 import Cart from './pages/Cart/Cart';
+import PaymentDetails from './pages/PaymentDetails/PaymentDetails';
 import PaymentSuccess from './pages/PaymentSuccess/PaymentSuccess';
 import NotFound from './pages/NotFound/NotFound';
 import { 
@@ -32,7 +33,8 @@ export default function App() {
                 <Route path="/order_details/:id" element={<OrderDetails />}/>
                 <Route path="/cart" element={<Cart />}/>
                 <Route path="/profile" element={<Profile />}/>
-                <Route path="/paymentsuccess" element={<PaymentSuccess />}/>
+                <Route path="/payment_details" element={<PaymentDetails />}/>
+                <Route path="/payment_success" element={<PaymentSuccess />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
         </BrowserRouter>

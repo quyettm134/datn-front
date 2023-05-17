@@ -12,13 +12,14 @@
     font-family: "Imperial Script" !important;
 }
 
-.header-link:hover {
-    text-decoration: underline;
+.nav-bar:hover,
+.nav-bar.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.nav-bar:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+.category-link:hover {
+    text-decoration: underline;
 }

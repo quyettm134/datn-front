@@ -25,7 +25,7 @@ export default function ProductDetails() {
         <div className='vw-100'>
             <Header />
 
-            <Container fluid className='product-details-content vw-auto'>
+            <Container fluid className='product-details-content vw-auto' style={{marginTop: '80px'}}>
                 <Row className="d-flex" style={{paddingTop: '30px', paddingBottom: '30px'}}>
                     <Row>
                         <Col>
@@ -33,19 +33,19 @@ export default function ProductDetails() {
                                 <Image style={{
                                     width: '140px',
                                     height: '150px'
-                                }} src='https://previews.123rf.com/images/rglinsky/rglinsky1201/rglinsky120100188/12336990-vertical-image-orient%C3%A9e-de-la-c%C3%A9l%C3%A8bre-tour-eiffel-%C3%A0-paris-france-.jpg'/>
+                                }} src={require(`../../assets/images/products/0126589006.jpg`)}/>
                             </Row>
                             <Row className='justify-content-end' style={{paddingBottom: '10px'}}>
                                 <Image style={{
                                     width: '140px',
                                     height: '150px'
-                                }} src='https://images.adsttc.com/media/images/5b08/b87c/f197/ccb5/4900/00bd/medium_jpg/The_S_02_filter_edit2_06.jpg?1527298139'/>
+                                }} src={require(`../../assets/images/products/0126589006.jpg`)}/>
                             </Row>
                             <Row className='justify-content-end' style={{paddingBottom: '10px'}}>
                                 <Image style={{
                                     width: '140px',
                                     height: '150px'
-                                }} src='https://thumbs.dreamstime.com/b/vertical-shot-canal-venice-italy-boats-old-houses-193711930.jpg'/>
+                                }} src={require(`../../assets/images/products/0126589006.jpg`)}/>
                             </Row>
                             <Row></Row>
                         </Col>
@@ -56,26 +56,26 @@ export default function ProductDetails() {
                                     width: '330px',
                                     height: '600px'
                                 }}>
-                                    <Image src='https://previews.123rf.com/images/rglinsky/rglinsky1201/rglinsky120100188/12336990-vertical-image-orient%C3%A9e-de-la-c%C3%A9l%C3%A8bre-tour-eiffel-%C3%A0-paris-france-.jpg'/>
+                                    <Image src={require(`../../assets/images/products/0126589006.jpg`)}/>
                                 </Carousel.Item>
                                 <Carousel.Item interval={3000} style={{
                                     width: '330px',
                                     height: '600px'
                                 }}>
-                                    <Image src='https://images.adsttc.com/media/images/5b08/b87c/f197/ccb5/4900/00bd/medium_jpg/The_S_02_filter_edit2_06.jpg?1527298139'/>
+                                    <Image src={require(`../../assets/images/products/0126589006.jpg`)}/>
                                 </Carousel.Item>
                                 <Carousel.Item interval={3000} style={{
                                     width: '330px',
                                     height: '600px'
                                 }}>
-                                    <Image src='https://thumbs.dreamstime.com/b/vertical-shot-canal-venice-italy-boats-old-houses-193711930.jpg'/>
+                                    <Image src={require(`../../assets/images/products/0126589006.jpg`)}/>
                                 </Carousel.Item>
                             </Carousel>
                         </Col>
                         
                         <Col style={{marginLeft: '20px'}}>
                             <Row>
-                                <p className='fs-3 fw-bold'>{thisProduct?.name}</p>
+                                <p className='fs-3 fw-bold'>{thisProduct?.prod_name}</p>
                             </Row>
                             <Row style={{paddingBottom: '15px'}}>
                                 <Col>
@@ -339,27 +339,27 @@ export default function ProductDetails() {
 
                     <Row style={{paddingBottom: '30px'}}>
                         <Col className='d-flex justify-content-center'>
-                            <Image src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Eiffel_Tower_Vertical.JPG'
+                            <Image src={require(`../../assets/images/products/0126589007.jpg`)}
                                 style={{width: '160px', height: '200px', cursor: 'pointer'}}
                             />
                         </Col>
                         <Col className='d-flex justify-content-center'>
-                            <Image src='https://previews.123rf.com/images/rglinsky/rglinsky1201/rglinsky120100188/12336990-vertical-image-orient%C3%A9e-de-la-c%C3%A9l%C3%A8bre-tour-eiffel-%C3%A0-paris-france-.jpg'
+                            <Image src={require(`../../assets/images/products/0126589010.jpg`)}
                                 style={{width: '160px', height: '200px', cursor: 'pointer'}}
                             />
                         </Col>
                         <Col className='d-flex justify-content-center'>
-                            <Image src='https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmVydGljYWwlMjBsYW5kc2NhcGV8ZW58MHx8MHx8&w=1000&q=80'
+                            <Image src={require(`../../assets/images/products/0126589011.jpg`)}
                                 style={{width: '160px', height: '200px', cursor: 'pointer'}}
                             />
                         </Col>
                         <Col className='d-flex justify-content-center'>
-                            <Image src='https://upload.wikimedia.org/wikipedia/commons/9/91/F-15_vertical_deploy.jpg'
+                            <Image src={require(`../../assets/images/products/0126589012.jpg`)}
                                 style={{width: '160px', height: '200px', cursor: 'pointer'}}
                             />
                         </Col>
                         <Col className='d-flex justify-content-center'>
-                            <Image src='https://st2.depositphotos.com/2288675/5430/i/600/depositphotos_54306899-stock-photo-balance-and-harmony-in-nature.jpg'
+                            <Image src={require(`../../assets/images/products/0130035001.jpg`)}
                                 style={{width: '160px', height: '200px', cursor: 'pointer'}}
                             />
                         </Col>

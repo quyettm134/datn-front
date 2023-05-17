@@ -103,7 +103,7 @@ export default function OrderDetails() {
                                     }}
                                 >
                                     <Col className="col-lg-auto">
-                                        <Image src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Eiffel_Tower_Vertical.JPG' 
+                                        <Image src={require(`../../assets/images/products/0126589006.jpg`)} 
                                         style={{
                                             width: '160px', 
                                             height: '160px', 
@@ -113,11 +113,11 @@ export default function OrderDetails() {
 
                                     <Col className='col-lg-5'>
                                         <Row>
-                                            <p className='fs-1 fw-bold'>{item.product?.name}</p>
+                                            <p className='fs-1 fw-bold'>2p Claw</p>
                                         </Row>
                                         
                                         <Row>
-                                            <p className='fw-bold' style={{color: 'gray'}}>Variation: {item.product?.color}</p>
+                                            <p className='fw-bold' style={{color: 'gray'}}>Variation: Black</p>
                                         </Row>
 
                                         <Row>

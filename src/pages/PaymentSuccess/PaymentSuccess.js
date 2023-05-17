@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import "./PaymentSuccess.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -8,31 +9,36 @@ export default function PaymentSuccess() {
     return (
         <>
             <Header />
-            <div style={{
-                fontSize: "200px",
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "50px",
-            }}>
-                <AiFillCheckCircle  />
-            </div>
+            
+            <Container fluid className="payment-success-content vw-auto">
+                <div style={{
+                    fontSize: "200px",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "50px",
+                }}>
+                    <AiFillCheckCircle  />
+                </div>
 
-            <div style={{
-                fontWeight: "bold",
-                fontSize: "24px",
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "50px",
-            }}>ORDER PLACED!</div>
+                <div style={{
+                    fontWeight: "bold",
+                    fontSize: "24px",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "50px",
+                }}>ORDER PLACED!</div>
 
-            <div style={{
-                fontSize: "24px",
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "50px",
-                marginBottom: "50px"
-            }}>Your order was placed successfully.
-            For more details, check Order status.</div>
+                <div style={{
+                    fontSize: "24px",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "50px",
+                    marginBottom: "50px"
+                }}>
+                    Your order was placed successfully.
+                    For more details, check Order status.
+                </div>
+            </Container>
             
             <Footer/>
         </>

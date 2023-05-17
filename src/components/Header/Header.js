@@ -5,7 +5,7 @@ import { updateQuantity, removeItem } from "../../redux/cart/cartSlice";
 import { selectUser } from "../../redux/user/userSelectors";
 import { selectCart } from "../../redux/cart/cartSelectors";
 import { Row, Col, Container, Badge, Image, Form, Button } from "react-bootstrap";
-import { BsCart3, BsPerson, BsSearch } from "react-icons/bs";
+import { BsCart3, BsPerson, BsSearch, BsChevronRight } from "react-icons/bs";
 import "./Header.css";
 
 export default function Header() {
@@ -13,6 +13,7 @@ export default function Header() {
     const User = useSelector(selectUser);
     const Cart = useSelector(selectCart);
     const [isHover, setIsHover] = useState(false);
+    const [showCategory, setShowCategory] = useState(false);
 
     const handleMouseEnter = () => {
         setIsHover(true);
@@ -20,6 +21,14 @@ export default function Header() {
 
     const handleMouseLeave = () => {
         setIsHover(false);
+    }
+
+    const handleMouseCategoryEnter = () => {
+        setShowCategory(true);
+    }
+
+    const handleMouseCategoryLeave = () => {
+        setShowCategory(false);
     }
 
     const handleQuantityChange = (id, quantity) => {
@@ -54,8 +63,15 @@ export default function Header() {
 
                 <Col className="d-flex" style={{ marginLeft: '20px' }}>
                     <Row style={{ fontSize: '18px' }}>
-                        <Col className="col-sm-auto nav-bar">Home</Col>
-                        <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>Categories</Col>
+                        <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}><Link to="/" style={{color: 'white', textDecoration: 'none' }}>Home</Link></Col>
+                        <Col className={`col-sm-auto nav-bar ${showCategory ? 'active' : ''}`} style={{ marginLeft: '20px' }}>
+                            <Link to="/product_list" 
+                                style={{color: 'white', textDecoration: 'none' }}
+                                onMouseEnter={handleMouseCategoryEnter}
+                            >
+                                Categories
+                            </Link>
+                        </Col>
                         <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>About</Col>
                         <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>Payment</Col>
                         <Col className="col-sm-auto nav-bar" style={{ marginLeft: '20px' }}>Contact us</Col>
@@ -93,7 +109,7 @@ export default function Header() {
                 )}
 
                 <Col 
-                    className="col-md-auto align-self-center nav-bar" 
+                    className={`col-md-auto align-self-center nav-bar ${isHover ? 'active' : ''}`} 
                     style={{fontSize: '18px'}}
                     onMouseEnter={handleMouseEnter}
                 >
@@ -245,6 +261,66 @@ export default function Header() {
                                 </div>
                             ))
                         }
+                    </Col>
+                </Container>
+            }
+
+            {showCategory &&
+                <Container
+                    onMouseEnter={handleMouseCategoryEnter}
+                    onMouseLeave={handleMouseCategoryLeave}
+                    style={{ 
+                        backgroundColor: 'white',
+                        width: '200px', 
+                        height: '170px', 
+                        position: 'fixed', 
+                        zIndex: 9999,
+                        left: 270,
+                        boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)',
+                        borderRadius: '10px',
+                    }}
+                >
+                    <Col className="mt-2 mx-2">
+                        <Row className="mt-2 align-items-center justify-content-between">
+                            <Col xs="auto">
+                                <span className="category-link"><Link to="/men" style={{textDecoration: 'none', color: 'black'}}>Menswear</Link></span>
+                            </Col>
+                            <Col xs="auto">
+                                <BsChevronRight />
+                            </Col>
+                        </Row>
+                        <Row className="mt-2 align-items-center justify-content-between">
+                            <Col xs="auto">
+                                <span className="category-link"><Link to="/women" style={{textDecoration: 'none', color: 'black'}}>Ladieswear</Link></span>
+                            </Col>
+                            <Col xs="auto">
+                                <BsChevronRight />
+                            </Col>
+                        </Row>
+                        <Row className="mt-2 align-items-center justify-content-between">
+                            <Col xs="auto">
+                                <span className="category-link">Divided</span>
+                            </Col>
+                            <Col xs="auto">
+                                <BsChevronRight />
+                            </Col>
+                        </Row>
+                        <Row className="mt-2 align-items-center justify-content-between">
+                            <Col xs="auto">
+                                <span className="category-link">Sport</span>
+                            </Col>
+                            <Col xs="auto">
+                                <BsChevronRight />
+                            </Col>
+                        </Row>
+                        <Row className="mt-2 align-items-center justify-content-between">
+                            <Col xs="auto">
+                                <span className="category-link">Baby/Children</span>
+                            </Col>
+                            <Col xs="auto">
+                                <BsChevronRight />
+                            </Col>
+                        </Row>
                     </Col>
                 </Container>
             }

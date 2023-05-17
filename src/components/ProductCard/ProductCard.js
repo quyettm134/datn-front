@@ -8,7 +8,7 @@ import { BsHeart, BsCart } from "react-icons/bs";
 import 'react-toastify/dist/ReactToastify.css';
 import "./ProductCard.css";
 
-export default function ProductCard({ id, name, price, color }) {
+export default function ProductCard({ id, name, price, color, article_id }) {
     const dispatch = useDispatch();
 
     const notifyAddItem = () => toast.success("Item added to cart!");
@@ -17,7 +17,10 @@ export default function ProductCard({ id, name, price, color }) {
         <Col className="col-md-auto product-card-content">
             <Card style={{backgroundColor: '#ffffff', boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)'}}>
                 <Link to={`/product_details/${id}`} style={{textDecoration: 'none', color: '#000000'}}>
-                    <Card.Img style={{width: '350px', height: '267px', objectFit: 'cover'}} variant="top" src="https://www.istockphoto.com/resources/images/PhotoFTLP/1035146258.jpg"/>
+                    <Card.Img 
+                        style={{width: '350px', height: '267px', objectFit: 'cover'}} variant="top" 
+                        src={require(`../../assets/images/products/0${article_id}.jpg`)}
+                    />
                 </Link>
                 <Card.Body style={{maxWidth: '350px'}}>
                     <Row style={{marginBottom: '20px'}}>
