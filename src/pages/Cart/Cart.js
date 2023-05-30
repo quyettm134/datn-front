@@ -49,7 +49,7 @@ export default function Cart() {
 
         if (OrderStatus) {
             dispatch(clearCart());
-            navigate('/paymentsuccess');
+            navigate('/payment_success');
         }
 
         else {
@@ -349,9 +349,11 @@ export default function Cart() {
                                             color: '#000000', 
                                             borderColor: '#FFFFFF', 
                                             boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)'
-                                        }}>
-                                            Check out
-                                        </Button>
+                                        }}
+                                        onClick={() => navigate('/checkout')}
+                                    >
+                                        Check out
+                                    </Button>
                                 </Row>
 
                                 <Row className="text-center" style={{marginTop: '10px'}}>

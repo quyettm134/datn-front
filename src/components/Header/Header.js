@@ -299,7 +299,7 @@ export default function Header() {
                         </Row>
                         <Row className="mt-2 align-items-center justify-content-between">
                             <Col xs="auto">
-                                <span className="category-link">Divided</span>
+                                <span className="category-link"><Link to="/divided" style={{textDecoration: 'none', color: 'black'}}>Divided</Link></span>
                             </Col>
                             <Col xs="auto">
                                 <BsChevronRight />
@@ -307,7 +307,7 @@ export default function Header() {
                         </Row>
                         <Row className="mt-2 align-items-center justify-content-between">
                             <Col xs="auto">
-                                <span className="category-link">Sport</span>
+                                <span className="category-link"><Link to="/sport" style={{textDecoration: 'none', color: 'black'}}>Sport</Link></span>
                             </Col>
                             <Col xs="auto">
                                 <BsChevronRight />
@@ -315,7 +315,7 @@ export default function Header() {
                         </Row>
                         <Row className="mt-2 align-items-center justify-content-between">
                             <Col xs="auto">
-                                <span className="category-link">Baby/Children</span>
+                                <span className="category-link"><Link to="/children" style={{textDecoration: 'none', color: 'black'}}>Baby / Children</Link></span>
                             </Col>
                             <Col xs="auto">
                                 <BsChevronRight />

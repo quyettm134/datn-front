@@ -6,6 +6,7 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import { BsHeart, BsCart } from "react-icons/bs";
 import 'react-toastify/dist/ReactToastify.css';
+import defaultImage from "../../assets/images/Logo.png";
 import "./ProductCard.css";
 
 export default function ProductCard({ id, name, price, color, article_id }) {
@@ -13,13 +14,16 @@ export default function ProductCard({ id, name, price, color, article_id }) {
 
     const notifyAddItem = () => toast.success("Item added to cart!");
 
+    // const imagePath = require(`../../assets/images/products/0${article_id}.jpg`);
+    const imageSrc = defaultImage;
+
     return (
         <Col className="col-md-auto product-card-content">
             <Card style={{backgroundColor: '#ffffff', boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)'}}>
                 <Link to={`/product_details/${id}`} style={{textDecoration: 'none', color: '#000000'}}>
                     <Card.Img 
                         style={{width: '350px', height: '267px', objectFit: 'cover'}} variant="top" 
-                        src={require(`../../assets/images/products/0${article_id}.jpg`)}
+                        src={imageSrc}
                     />
                 </Link>
                 <Card.Body style={{maxWidth: '350px'}}>

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProduct } from '../../redux/product/productSelectors';
 import { fetchOneProduct } from '../../redux/product/productActions';
+import { addItem } from '../../redux/cart/cartSlice';
 import { Container, Row, Col, Carousel, Image, Button, Form } from 'react-bootstrap';
 import { BsArrowLeftSquare, BsHeart, BsPersonCircle, BsStarFill, BsStarHalf, BsTruck } from 'react-icons/bs';
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import './ProductDetails.css';
@@ -16,6 +19,8 @@ export default function ProductDetails() {
     const dispatch = useDispatch();
     const thisProduct = useSelector(selectProduct);
     const { id } = useParams();
+
+    const notifyAddItem = () => toast.success("Item added to cart!");
 
     useEffect(() => {
         dispatch(fetchOneProduct({ id }));
@@ -88,9 +93,15 @@ export default function ProductDetails() {
                             </Row>
                             <Row style={{paddingBottom: '30px'}}>
                                 <Col>
-                                    <Link to="/cart">
-                                        <Button variant='dark' style={{width: '250px', borderRadius: '25px'}}>ADD TO CART</Button>
-                                    </Link>
+                                    <Button variant='dark' style={{width: '250px', borderRadius: '25px'}} 
+                                        onClick={() => {
+                                            dispatch(addItem({ 
+                                                id: thisProduct._id, 
+                                                name: thisProduct.prod_name,
+                                                price: thisProduct.price,
+                                            }));
+                                            notifyAddItem();
+                                        }}>ADD TO CART</Button>
                                     <BsHeart style={{width: '30px', height: '30px', marginLeft: '25px', cursor: 'pointer'}}/>
                                 </Col>
                             </Row>
@@ -369,6 +380,8 @@ export default function ProductDetails() {
                         <Button variant='dark' style={{width: '300px', borderRadius: '20px'}}>SEE MORE</Button>
                     </Row>
                 </Row>
+
+                <ToastContainer />
             </Container>
 
             <Footer/>
