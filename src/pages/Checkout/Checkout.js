@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createOrder } from '../../redux/order/orderActions';
@@ -16,7 +17,20 @@ export default function Checkout() {
     const thisCart = useSelector(selectCart);
     const OrderStatus = useSelector(selectOrderStatus);
 
-    const total = thisCart?.reduce((res, item) => {
+    const [promoCode, setPromoCode] = useState("");
+    const [showPromo, setShowPromo] = useState(false);
+
+    const handlePromoCodeChange = (e) => {
+        setPromoCode(e.target.value);
+    };
+
+    const handleRedeem = () => {
+        if (promoCode === "EXAMPLECODE") {
+            setShowPromo(true);
+        }
+    };
+
+    let initTotal = thisCart.reduce((res, item) => {
         return res += item.price * item.quantity;
     }, 0);
 
@@ -28,9 +42,9 @@ export default function Checkout() {
             }
         });
 
-        const taxedTotal = total + 15;
+        const total = initTotal + 15 - 5;
 
-        dispatch(createOrder({ products_list, taxedTotal }));
+        dispatch(createOrder({ products_list, total }));
 
         if (OrderStatus) {
             dispatch(clearCart());
@@ -43,7 +57,7 @@ export default function Checkout() {
     }
 
     const [addressType, setAddressType] = useState('');
-    const [paymentType, setPaymentType] = useState('');
+    const [paid, setPaid] = useState(false);
 
     return (
         <div className='vw-auto'>
@@ -56,8 +70,7 @@ export default function Checkout() {
                 marginBottom: '30px'
             }}>
                 <div class="py-5 text-center">
-                    <h2>Checkout form</h2>
-                    <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <h1>Payment Details</h1>
                 </div>
 
                 <Row className='d-flex flex-row'>
@@ -76,28 +89,34 @@ export default function Checkout() {
                                     <span class="text-muted">${item.price * item.quantity}</span>
                                 </li>
                             ))}
-                            <li class="list-group-item d-flex justify-content-between bg-light">
-                                <Row class="text-success">
-                                    <h6 class="my-0">Promo code</h6>
-                                    <small>EXAMPLECODE</small>
-                                </Row>
-                                <span class="text-success">-$5</span>
-                            </li>
+                            {
+                                showPromo && (
+                                    <li class="list-group-item d-flex justify-content-between bg-light">
+                                        <Row class="text-success">
+                                            <h6 class="my-0">Promo code</h6>
+                                            <small>EXAMPLECODE</small>
+                                        </Row>
+                                        <span class="text-success">-$5</span>
+                                    </li>
+                                )
+                            }
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Total (USD)</span>
-                                <strong>${total}</strong>
+                                <strong>${promoCode === 'EXAMPLECODE' ? initTotal - 5 + 15 : initTotal + 15}</strong>
                             </li>
                         </ul>
 
                         <form class="card p-2">
                             <InputGroup className="mb-3">
-                                        <Form.Control
-                                            aria-label="promo-code"
-                                            pattern='[a-zA-Z0-9]+'
-                                            placeholder='Enter promo code'
-                                        />
+                                <Form.Control
+                                    aria-label="promo-code"
+                                    pattern='[a-zA-Z0-9]+'
+                                    placeholder='Enter promo code'
+                                    value={promoCode}
+                                    onChange={handlePromoCodeChange}
+                                />
                                 <div class="input-group-append">
-                                    <Button variant='secondary'>Redeem</Button>
+                                    <Button variant='secondary' onClick={handleRedeem}>Redeem</Button>
                                 </div>
                             </InputGroup>
                         </form>
@@ -240,7 +259,7 @@ export default function Checkout() {
 
                             <Row className='d-flex flex-row'>
                                 <label for="country" style={{marginBottom: '10px'}}>Contact phone number</label>
-                                <Col class="col-md-auto mb-3">
+                                <Col class="col-sm-auto mb-3">
                                     <Form.Select aria-label="Country code" required style={{width: '250px'}}>
                                         <option>Choose...</option>
                                         <option value="">+84 Vietnam</option>
@@ -286,99 +305,37 @@ export default function Checkout() {
                             <hr class="mb-4" />
 
                             <Row className='d-flex flex-row'>
-                                <label for="country" style={{marginBottom: '10px'}}>Payment type</label>
-                                <Col className="col-md-auto mb-3">
-                                    <Button 
-                                        variant={paymentType === 'credit' ? 'dark' : 'outline-dark'} 
-                                        style={{width: '200px'}}
-                                        onClick={() => setPaymentType('credit')}
-                                    >Credit card</Button>
-                                </Col>
-
-                                <Col className="col-md-auto mb-3">
-                                    <Button 
-                                        variant={paymentType === 'momo' ? 'dark' : 'outline-dark'} 
-                                        style={{width: '200px'}}
-                                        onClick={() => setPaymentType('momo')}
-                                    >Momo</Button>
-                                </Col>
-
-                                <Col className="col-md-4 mb-3">
-                                    <Button 
-                                        variant={paymentType === 'banking' ? 'dark' : 'outline-dark'} 
-                                        style={{width: '200px'}}
-                                        onClick={() => setPaymentType('banking')}
-                                    >Internet Banking / ATM</Button>
-                                </Col>
+                                <label for="payment" style={{marginBottom: '10px'}}>Payment type</label>
+                                <PayPalScriptProvider options={{"client-id": "AfeeZN9iW_ZmAyeBZCF-aOCv6xY801rwLn1-WR64Fsa3l8SjZ-ant2K3enfY6mnHiU6vlDb0N1AfJ_Dt"}}>
+                                    <PayPalButtons
+                                        onClick={() => setPaid(true)}
+                                        createOrder={(data, actions) => {
+                                            return actions.order.create({
+                                                purchase_units: [
+                                                    {
+                                                        amount: {
+                                                            value: initTotal + 15 - 5
+                                                        },
+                                                    },
+                                                ],
+                                            });
+                                        }}
+                                    />
+                                </PayPalScriptProvider>
                             </Row>           
 
                             <hr class="mb-4" />
 
-                            <Row class="row mb-3">
-                                <Col class="col-md-6 mb-3">
-                                    <label for="cc-name">Name on card</label>
-                                    <InputGroup className="mb-3">
-                                        <Form.Control
-                                            aria-label="cc-name"
-                                            pattern='[a-zA-Z]+'
-                                            required
-                                        />
-                                    </InputGroup>
-                                    <small class="text-muted">Full name as displayed on card</small>
-                                    <div class="invalid-feedback">
-                                        Name on card is required
-                                    </div>
-                                </Col>
-                                <Col class="col-md-6 mb-3">
-                                    <label for="cc-number">Credit card number</label>
-                                    <InputGroup className="mb-3">
-                                        <Form.Control
-                                            aria-label="cc-number"
-                                            pattern='[0-9]+'
-                                            required
-                                        />
-                                    </InputGroup>
-                                    <div class="invalid-feedback">
-                                        Credit card number is required
-                                    </div>
-                                </Col>
-                            </Row>
-
-                            <Row class="row">
-                                <Col class="col-md-3 mb-3">
-                                    <label for="cc-expiration">Expiration</label>
-                                    <InputGroup className="mb-3">
-                                        <Form.Control
-                                            aria-label="cc-expiration"
-                                            pattern='[0-9/]+'
-                                            required
-                                        />
-                                    </InputGroup>
-                                    <div class="invalid-feedback">
-                                        Expiration date required
-                                    </div>
-                                </Col>
-                                <Col class="col-md-3 mb-3">
-                                    <label for="cc-expiration">CVV</label>
-                                    <InputGroup className="mb-3">
-                                        <Form.Control
-                                            aria-label="cc-cvv"
-                                            pattern='[0-9]+'
-                                            required
-                                        />
-                                    </InputGroup>
-                                    <div class="invalid-feedback">
-                                        Security code required
-                                    </div>
-                                </Col>
-                            </Row>
-                            <hr class="mb-4" />
                             <button 
                                 className="btn btn-dark btn-lg btn-block" 
                                 type="button" style={{width: '250px'}}
-                                disabled={thisCart?.length === 0}
-                                onClick={() => handleCreateOrder()}
-                            >Confirm order</button>
+                                disabled={thisCart.length === 0 && paid === false}
+                                onClick={() => {
+                                    handleCreateOrder();
+                                }}
+                            >
+                                Confirm order
+                            </button>
                         </form>
                     </Col>
                 </Row>

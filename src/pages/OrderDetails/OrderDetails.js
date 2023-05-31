@@ -23,6 +23,8 @@ export default function OrderDetails() {
     const product_list = thisOrder?.product_list;
     const date = new Date(thisOrder?.order_day);
 
+    console.log(product_list);
+
     const formattedDate = date.toLocaleDateString('en-GB', {
         day: '2-digit',
         month: '2-digit',
@@ -103,7 +105,7 @@ export default function OrderDetails() {
                                     }}
                                 >
                                     <Col className="col-lg-auto">
-                                        <Image src={require(`../../assets/images/products/0126589006.jpg`)} 
+                                        <Image src={require(`../../assets/images/Logo.png`)} 
                                         style={{
                                             width: '160px', 
                                             height: '160px', 
@@ -113,15 +115,15 @@ export default function OrderDetails() {
 
                                     <Col className='col-lg-5'>
                                         <Row>
-                                            <p className='fs-1 fw-bold'>2p Claw</p>
+                                            <p className='fs-4 fw-bold'>{item.product.prod_name}</p>
                                         </Row>
                                         
                                         <Row>
-                                            <p className='fw-bold' style={{color: 'gray'}}>Variation: Black</p>
+                                            <p className='fw-bold' style={{color: 'gray'}}>Variation: {item.product.colour_group_name}</p>
                                         </Row>
 
                                         <Row>
-                                            <p className='fw-bold' style={{color: 'gray'}}>Size: L</p>
+                                            <p className='fw-bold' style={{color: 'gray'}}>Style: {item.product.style_name}</p>
                                         </Row>
                                     </Col>
 
@@ -312,7 +314,7 @@ export default function OrderDetails() {
                                             marginLeft: "10px", 
                                             marginTop: "15px" 
                                         }}>
-                                            Payment on delivery
+                                            Paypal
                                     </p>
                                 </div>
                             </Row>

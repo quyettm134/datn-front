@@ -184,7 +184,7 @@ export default function Header() {
                                             maxWidth: '450px'
                                         }}>
                                         <Col>
-                                            <Image src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Eiffel_Tower_Vertical.JPG' style={{width: '160px', height: '160px', cursor: 'pointer'}}/>
+                                            <Image src={require('../../assets/images/Logo.png')} style={{width: '160px', height: '160px', cursor: 'pointer'}}/>
                                         </Col>
     
                                         <Col className='col-lg-5'>

@@ -152,7 +152,7 @@ export default function Cart() {
                                             boxShadow: '1px 1px 5px 1px rgba(0, 0, 0, 0.1)'
                                         }}>
                                         <Col>
-                                            <Image src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Eiffel_Tower_Vertical.JPG' style={{width: '160px', height: '160px', cursor: 'pointer'}}/>
+                                            <Image src={require('../../assets/images/Logo.png')} style={{width: '160px', height: '160px', cursor: 'pointer'}}/>
                                         </Col>
 
                                         <Col className='col-lg-5'>
